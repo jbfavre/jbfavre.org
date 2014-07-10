@@ -1,3 +1,10 @@
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
+
 name: "Mon blog-notes à moi que j'ai"
 description: "Le meilleur du pire de mes flux RSS (et de Twitter)"
 
