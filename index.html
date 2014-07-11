@@ -2,9 +2,14 @@
 layout: default
 ---
 
-<section id="content">
+<section id="post-list">
     {% for post in site.posts %}
-      <article class="post"><span>{{ post.date | date_to_string }}</span> &raquo; <h2 class="post-title"><a class="post-title" href="{{ post.url }}">{{ post.title }}</a></h2><div class="post-content"> {{ post.excerpt }}</div>
+      <article class="post">
+        <header class="post-title">
+          <h2 class="post-title"><a class="post-title" href="{{ post.url }}">{{ post.title }}</a></h2>
+          <span>{{ post.date | date_to_string }}</span> &raquo;
+        </header>
+        <section id="post-content" class="post-content"> {{ post.excerpt }}</section>
       </article>
     {% endfor %}
 </section>

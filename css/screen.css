@@ -79,13 +79,20 @@ article span {
 }
 
 .title {
-  color: #a00;
+  color: #245476;
   font-weight: bold;
+  font-size:1.8em;
   margin-bottom: 2em;
+  background-image:url('/images/moi.png');background-repeat:no-repeat;padding-left:50px;
 }
 
+  .site .title span {
+    display:block;
+    font-size: 0.7em;
+    line-height: 1.5em;
+  }
   .site .title a {
-    color: #a00;
+    color: #9f111b;
     text-decoration: none;
   }
 
@@ -110,15 +117,20 @@ article span {
   .site .footer {
     font-size: 80%;
     color: #666;
-    border-top: 4px solid #eee;
+    border-top: 2px dotted #245476;
     margin-top: 2em;
     overflow: hidden;
   }
 
     .site .footer .contact {
+      margin-top: 1.1em;
       float: left;
       margin-right: 3em;
     }
+
+      .site .footer .contact ul {
+          list-style:none;
+      }
 
       .site .footer .contact a {
         color: #8085C1;
@@ -140,50 +152,87 @@ article span {
 /*
 /*****************************************************************************/
 
-#post {
+.post {
 
 }
 
   /* standard */
 
-  #post pre {
+  .post .post-title {
+    font-weight:bold;
+    color: #245476;
+  }
+  .post .post-title a {
+    text-decoration: none;
+  }
+  .post-content {
+    color:#505050;
+  }
+  .post-content a {
+    text-decoration: none;
+    color: #245476;
+    font-weight: bold;
+  }
+  .post-content a:hover {
+    text-decoration: underline;
+  }
+
+  .post-content pre {
     border: 1px solid #ddd;
-    background-color: #eef;
+    background-color: #F5F4EF;
     padding: 0 .4em;
   }
 
-  #post ul,
-  #post ol {
+  .post-content ul,
+  .post-content ol {
     margin-left: 1.35em;
   }
 
-  #post code {
+  .post-content code {
     border: 1px solid #ddd;
-    background-color: #eef;
+    background-color: #F5F4EF;
     font-size: 85%;
     padding: 0 .2em;
   }
 
-    #post pre code {
+    .post-content pre code {
       border: none;
     }
 
   /* terminal */
 
-  #post pre.terminal {
+  .post-content pre.terminal {
     border: 1px solid black;
     background-color: #333;
     color: white;
   }
 
-  #post pre.terminal code {
+  .post-content pre.terminal code {
     background-color: #333;
   }
 
 #related {
   margin-top: 2em;
 }
+  #related ol, #related ul {
+    list-style:none;
+  }
+  #related span {
+    color: #aaa;
+    font-family: Monaco,"Courier New", Monospace;
+    font-size: 80%;
+  }
+  #related a {
+    text-decoration: none;
+    color: #245476;
+    font-weight: bold;
+    font-size: 80%;
+  }
+  #related a:hover {
+    text-decoration: underline;
+  }
 
   #related h2 {
     margin-bottom: 1em;
+    border-bottom:1px dotted #999;color:#9f111b;
   }

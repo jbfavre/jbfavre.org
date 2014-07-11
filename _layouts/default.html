@@ -4,7 +4,7 @@
 <meta name="verify-v1" content="cfM+BxZ/os8cme0oIVd46OIwqyXUsorha7mssfQtQ4k=" />
 <meta name="robots" content="all,index,follow" />
 <meta name="DC.title" content="{{ page.title }}" />
-<meta name="DC.Creator" content="Jean Baptiste Favre" />
+<meta name="DC.Creator" content="" />
 <meta name="DC.Description" content="Le meilleur du pire de mes flux RSS (et de Twitter): PSES2014: ELK - Elasticsearch, Logstash &amp; Kibana" />
 <meta name="DC.Language" content="fr" />
 <meta name="DC.Publisher" content="Jean Baptiste Favre"/>
@@ -20,54 +20,37 @@
    <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
    <!-- Homepage CSS -->
    <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
-   <style type="text/css">
-    h1{margin:1.3em 0 0.5em 0;font-size:1.8em;color:#9f111b}
-    h2{margin:1.5em 0 0.8em 0;font-size:1.5em;border-bottom:1px dotted #999;color:#9f111b}
-    h3{font-size:1.3em;color:#245476;}
-    h4{color:#245476;}
-    a{color: #245476;}
-    #header{margin:3em 0 3em 0;}
-    #title {background-image:url('http://medias.jbfavre.org/moi.png');background-repeat:no-repeat;padding-left:50px;margin:0;line-height:50px;font-size:1.5em;}
-    #title a {color:#9f111b;text-decoration:none}
-    #subtitle{display:block;font-size:0.8em;line-height:0.8em;margin:0;padding:0;color:#245476;}
-    .site{margin: 0 auto 2em}
-    .post {margin-top: 3em}
-    .post-title{display: inline;font-weight: bold;font-size:1.1em;margin:0;padding:0;}
-    .post-title a{color: #9f111b; text-decoration: none}
-   </style>
 <title>{{ page.title }}</title>
 </head>
-<body >
-<div class="site">
-  <div id="header">
-    <h1 id="title"><a href="/">Mon Blog-notes à moi que j'ai</a>
-    <span id="subtitle">Le meilleur du pire de mes flux RSS (et de Twitter)</span></h1>
-  </div><!-- fin header -->
+<body class="site">
+  <header id="header">
+    <h1 class="title"><a href="/">Mon Blog-notes à moi que j'ai</a>
+    <span>Le meilleur du pire de mes flux RSS (et de Twitter)</span></h1>
+  </header><!-- fin header -->
 
   
   {{ content }}
   
-  <div class="footer">
-    <div class="contact">
+  <footer class="footer">
+    <section class="contact">
       <ul>
-	  <li><a href="/cv" title="CV de Jean Baptiste Favre">Jean Baptiste Favre</a></li>
-          <li>Network &amp; System Architect</li>
-          <li>Currently @ BlaBlaCar</li>
+	  <li><a href="{{ site.owner.url }}" title="{{ site.owner.name }}">{{ site.owner.name }}</a></li>
+          <li>{{ site.owner.position }}</li>
+          <li>Currently @ {{ site.owner.company }}</li>
       </ul>
-    </div>
-    <div class="contact">
+    </section>
+    <section class="contact">
       <ul>
-        <li><a href="//github.com/jbfavre/">github.com/jbfavre</a></li>
-        <li><a href="//twitter.com/mojombo/">twitter.com/jbfavre</a></li>
-        <li><a href="//status.jbfavre.org/">status.jbfavre.org</a></li>
+        {% if site.owner.github %}<li><a href="//github.com/{{ site.owner.github }}/">github.com/{{ site.owner.github }}</a></li>{% endif %}
+        {% if site.owner.twitter %}<li><a href="//twitter.com/{{ site.owner.twitter }}/">twitter.com/{{ site.owner.twitter }}</a></li>{% endif %}
+        {% if site.owner.gnusocial %}<li><a href="//{{ site.owner.gnusocial }}/">{{ site.owner.gnusocial }}</a></li>{% endif %}
       </ul>
-    </div>
-    <div class="rss">
+    </section>
+    <aside class="rss">
       <a href="/atom.xml">
         <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
       </a>
-    </div>
-  </div>
-</div>
+    </aside>
+  </footer>
 </body>
 </html>
