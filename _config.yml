@@ -10,8 +10,6 @@ description: "Le meilleur du pire de mes flux RSS (et de Twitter)"
 
 url: "//blog-notes.jbfavre.org"
 
-paginate: 10
-
-markdown: rdiscount
 permalink: pretty
-highlighter: false
+highlighter: pygments
+excerpt_separator: "<!-- -->"
