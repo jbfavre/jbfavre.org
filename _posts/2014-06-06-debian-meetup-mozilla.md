@@ -6,8 +6,6 @@ layout: post
 J'ai eu l'occasion d'y présenter l'utilisation de Debian par mon employeur: BlaBlaCar.
 
 Debian est déployé sur 100% de notre parc, soit une centaine de serveurs, dont 50% de machines virtuelles.  
-L'installation des serveurs physiques est naturellement automatique et silencieuse grâce à PXE et aux fichiers preseed.  
-Nous utilisons, au maximum, les paquets fournis par Debian. Il arrive cependant que certains paquets soient absent du projet, ou que la version disponible ne réponde pas entièrement à notre besoin. Dans ce cas, nous backportons nos propres versions de paquets.
 
 <!-- -->
 

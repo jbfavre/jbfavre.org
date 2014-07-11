@@ -8,9 +8,9 @@ La dernière édition de Pas Sage En Seine s'est déroulée du 26 au 29 juin 201
 
 Il s'agissait également de montrer dans quelle mesure cette solution pouvait être utilisée pour traiter tout type d'évènements ou presque.
 
-À titre de démo, j'ai choisi de scruter Twitter à la recherche des mots-dièses "officiels" de l'évènement, **PSES** et **PSES2014**.
-
 <!-- -->
+
+À titre de démo, j'ai choisi de scruter Twitter à la recherche des mots-dièses "officiels" de l'évènement, **PSES** et **PSES2014**.
 
 S'en sont suivis quelques tweets de teasing, distillés tout au long de l'évènement. Le point d'orgue étant les stats finales, mais pas officielles, annoncées dimanche en fin de soirée:
 
