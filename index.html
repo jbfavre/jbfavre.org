@@ -1,0 +1,10 @@
+---
+layout: default
+---
+
+<section id="content">
+    {% for post in site.posts %}
+      <article class="post"><span>{{ post.date | date_to_string }}</span> &raquo; <h2 class="post-title"><a class="post-title" href="{{ post.url }}">{{ post.title }}</a></h2><div class="post-content"> {{ post.excerpt }}</div>
+      </article>
+    {% endfor %}
+</section>
