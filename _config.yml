@@ -1,15 +1,26 @@
-defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
-    values:
-      layout: "default"
+title: Mon Blog-notes à moi que j'ai
+description: Le meilleur du pire de mes flux RSS (et de Twitter)
+logo: images/moi.png
+
+url: "//blog-notes.jbfavre.org"
+
+owner:
+  name: Jean Baptiste Favre
+  url: /cv
+  position: Network &amp; System Architect
+  company: BlaBlaCar
+  email: webmaster@jbfavre.org
+  github: jbfavre
+  twitter: jbfavre
+  gnusocial: status.jbfavre.org
+
+timezone: Europe/Paris
 
 name: "Mon blog-notes à moi que j'ai"
 description: "Le meilleur du pire de mes flux RSS (et de Twitter)"
 
-url: "//blog-notes.jbfavre.org"
 
 permalink: pretty
-highlighter: pygments
+highlighter: rouge
 excerpt_separator: "<!-- -->"
+
