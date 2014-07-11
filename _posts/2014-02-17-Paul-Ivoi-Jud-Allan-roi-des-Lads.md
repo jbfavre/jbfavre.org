@@ -67,18 +67,20 @@ Les photos sont de plus nommées automatiquement par les appareils suivant le fo
 Il faut donc commencer par réconcilier tout cela. Les pages de couverture sont renommées à la main, elle sont peu nombreuses.  
 Il reste les pages paires
 
-{% highlight bash linenos %}
+{% highlight bash %}
+
 PAGE=2
 for file in IMG_*.JPG;
 do
     mv right/${file} page-${PAGE}.JPG
     PAGE=$((PAGE+2))
 done
+
 {% endhighlight %}
 
 et impaires
 
-{% highlight bash linenos %}
+{% highlight bash %}
 PAGE=1
 for file in IMG_*.JPG;
 do
@@ -89,7 +91,7 @@ done
 
 Une fois toutes les pages rassemblées, il faut également leur appliquer une rotation de 90° vers la droite pour les pages impaires et 90° vers la gauche, ou 270° vers la droite, pour les pages paires.
 
-{% highlight bash linenos %}
+{% highlight bash %}
 for file in page-*.JPG;
 do
     PAGE=${file#page-*}
@@ -113,7 +115,7 @@ Dans mon cas, j'ai choisi le format Markdown. Couplé à pandoc, cela permettra 
 Il est également important de se préoccuper de la typographie. Cela améliore grandement le résultat final, mais pose parfois quelques soucis de compatibilité avec les liseuses.  
 Au fur et à mesure, on devine que certaines corrections reviennent très souvent, trop pour ne pas être automatisées
 
-{% highlight bash linenos %}
+{% highlight bash %}
 sed -i 's/ﬂ/fl/g' 2-markdown_chapitres/part-*/*.md
 sed -i 's/ﬁ/fi/g' 2-markdown_chapitres/part-*/*.md
 sed -i 's/ ?/ ?/g' 2-markdown_chapitres/part-*/*.md
@@ -149,7 +151,7 @@ Il faut donc dégaîner GIMP pour:
 * Exporter au format .jpg, qualité 90
 * Redimensionner l'image obtenue pour limiter le poids final de l'epub
 
-{% highlight bash linenos %}
+{% highlight bash %}
 SIZE=480
 for file in *.JPG; do
    echo -n Converting ${file}...
@@ -164,13 +166,13 @@ Enfin, l'on peut générer l'epub lui-même. Je vous laisse étudier le fichier 
 
 L'epub n'étant qu'un container zip, il est évidemment possible de la modifier avant de le reconstituer.
 
-{% highlight bash linenos %}
+{% highlight bash %}
 unzip -d Jud_Allan-partie-1 Jud_Allan-partie-1.epub
 {% endhighlight %}
 
 Dans mon cas, j'ai adapté le formatage des titres de chapitre et la feuille de style, puis reconstitué l'epub.
 
-{% highlight bash linenos %}
+{% highlight bash %}
 cd Jud_Allan
 FILE="../output/Jud_Allan-part-1.epub"
 rm -f "$FILE"
