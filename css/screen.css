@@ -160,7 +160,8 @@ article span {
 
   .post .post-title {
     font-weight:bold;
-    color: #245476;
+    /*color: #245476;*/
+    color: #9f111b;
   }
   h2.post-title {
     font-size: 1.5em;
