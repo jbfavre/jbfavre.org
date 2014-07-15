@@ -48,7 +48,7 @@ module Jekyll
 
     def minify_css(css_files, output_file)
       css_files = css_files.join(' ')
-      juice_cmd = "juicer merge -f #{css_files} -o #{output_file}"
+      juice_cmd = "juicer merge -f -d ./_site/ -i #{css_files} -o #{output_file}"
       puts juice_cmd
       system(juice_cmd)
     end
@@ -60,7 +60,7 @@ module Jekyll
           'css_source' => 'css', # relative to the route
           'css_destination' => '/css' # relative to site.config['destination']
         }
-        config = YAML.load_file('CssMinify.yml') rescue nil
+        config = YAML.load_file('_cssminify.yml') rescue nil
         if config.is_a?(Hash)
           @config = @config.merge(config)
         end
