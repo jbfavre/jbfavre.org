@@ -1,6 +1,8 @@
 ---
 title: Debian meetup du 4 juin 2014 chez Mozilla
 layout: post
+category: debian
+tags: [talks,backport,jenkins]
 ---
 
 J'ai eu l'occasion d'y présenter l'utilisation de Debian par mon employeur: BlaBlaCar.

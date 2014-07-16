@@ -1,6 +1,8 @@
 ---
 title: "PSES2014: Elasticsearch, Logstash & Kibana"
 layout: post
+category: PSES
+tags: [elk,talks]
 ---
 
 La dernière édition de Pas Sage En Seine s'est déroulée du 26 au 29 juin 2014.  
