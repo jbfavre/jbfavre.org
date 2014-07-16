@@ -21,6 +21,6 @@ description: "Le meilleur du pire de mes flux RSS (et de Twitter)"
 
 
 permalink: pretty
-highlighter: rouge
+highlighter: false
 excerpt_separator: "<!-- -->"
-
+paginate: 10
