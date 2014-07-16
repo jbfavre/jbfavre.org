@@ -1,3 +1,7 @@
+# encoding: utf-8
+
+# https://github.com/donaldducky/jekyll-cssminify
+
 module Jekyll
   $minified_filename = ''
 
