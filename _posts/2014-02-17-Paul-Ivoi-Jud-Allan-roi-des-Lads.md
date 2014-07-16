@@ -1,6 +1,8 @@
 ---
 title: Paul d'Ivoi - Jud Allan, roi des Lads
 layout: post
+category: bookscanner
+tags: [diy, livres]
 ---
 
 Pour les gens pressés ou ceux que la technique n'amuse pas, la version courte est visible sur le blog du bookscanner.
@@ -67,41 +69,33 @@ Les photos sont de plus nommées automatiquement par les appareils suivant le fo
 Il faut donc commencer par réconcilier tout cela. Les pages de couverture sont renommées à la main, elle sont peu nombreuses.  
 Il reste les pages paires
 
-{% highlight bash %}
-
-PAGE=2
-for file in IMG_*.JPG;
-do
-    mv right/${file} page-${PAGE}.JPG
-    PAGE=$((PAGE+2))
-done
-
-{% endhighlight %}
+    PAGE=2
+    for file in IMG_*.JPG;
+    do
+        mv right/${file} page-${PAGE}.JPG
+        PAGE=$((PAGE+2))
+    done
 
 et impaires
 
-{% highlight bash %}
-PAGE=1
-for file in IMG_*.JPG;
-do
-    mv left/${file} page-${PAGE}.JPG
-    PAGE=$((PAGE+2))
-done
-{% endhighlight %}
+    PAGE=1
+    for file in IMG_*.JPG;
+    do
+        mv left/${file} page-${PAGE}.JPG
+        PAGE=$((PAGE+2))
+    done
 
 Une fois toutes les pages rassemblées, il faut également leur appliquer une rotation de 90° vers la droite pour les pages impaires et 90° vers la gauche, ou 270° vers la droite, pour les pages paires.
 
-{% highlight bash %}
-for file in page-*.JPG;
-do
-    PAGE=${file#page-*}
-    PAGE=${PAGE%.JPG}
-    MODULO=$((PAGE % 2))
-    ROTATE=$((270-MODULO*180))
-    convert -rotate ${ROTATE} ${file} ${file%.*}.jpg
-    mv ${file%.*}.jpg ${file}
-done
-{% endhighlight %}
+    for file in page-*.JPG;
+    do
+        PAGE=${file#page-*}
+        PAGE=${PAGE%.JPG}
+        MODULO=$((PAGE % 2))
+        ROTATE=$((270-MODULO*180))
+        convert -rotate ${ROTATE} ${file} ${file%.*}.jpg
+        mv ${file%.*}.jpg ${file}
+    done
 
 #### Corrections du texte
 
@@ -115,29 +109,27 @@ Dans mon cas, j'ai choisi le format Markdown. Couplé à pandoc, cela permettra 
 Il est également important de se préoccuper de la typographie. Cela améliore grandement le résultat final, mais pose parfois quelques soucis de compatibilité avec les liseuses.  
 Au fur et à mesure, on devine que certaines corrections reviennent très souvent, trop pour ne pas être automatisées
 
-{% highlight bash %}
-sed -i 's/ﬂ/fl/g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/ﬁ/fi/g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/ ?/ ?/g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/ !/ !/g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/ ;/ ;/g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/ :/ :/g' 2-markdown_chapitres/part-*/*.md
-sed -i "s/'/’/g" 2-markdown_chapitres/part-*/*.md
-sed -i 's/‘/’/g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/oe/œ/g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/ae/æ/g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/.../…/g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/?../?…/g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/!../!…/g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/« /« /g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/ »/ »/g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/Mme /M^me^ /g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/Mmes /M^mes^ /g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/Mlle /M^lle^ /g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/Mlles /M^lles^ /g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/M. /M. /g' 2-markdown_chapitres/part-*/*.md
-sed -i 's/A /À /g' 2-markdown_chapitres/part-*/*.md
-{% endhighlight %}
+    sed -i 's/ﬂ/fl/g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/ﬁ/fi/g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/ ?/ ?/g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/ !/ !/g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/ ;/ ;/g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/ :/ :/g' 2-markdown_chapitres/part-*/*.md
+    sed -i "s/'/’/g" 2-markdown_chapitres/part-*/*.md
+    sed -i 's/‘/’/g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/oe/œ/g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/ae/æ/g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/.../…/g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/?../?…/g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/!../!…/g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/« /« /g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/ »/ »/g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/Mme /M^me^ /g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/Mmes /M^mes^ /g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/Mlle /M^lle^ /g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/Mlles /M^lles^ /g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/M. /M. /g' 2-markdown_chapitres/part-*/*.md
+    sed -i 's/A /À /g' 2-markdown_chapitres/part-*/*.md
 
 Attention, n'exécutez ces commandes que sur une page corrigée pour limiter au maximum les effets de bord.
 
@@ -151,14 +143,12 @@ Il faut donc dégaîner GIMP pour:
 * Exporter au format .jpg, qualité 90
 * Redimensionner l'image obtenue pour limiter le poids final de l'epub
 
-{% highlight bash %}
-SIZE=480
-for file in *.JPG; do
-   echo -n Converting ${file}...
-   convert -resize ${SIZE}x${SIZE} -quality 60 "$file" "little/${file%.*}.jpg"
-   echo done
-done
-{% endhighlight %}
+    SIZE=480
+    for file in *.JPG; do
+       echo -n Converting ${file}...
+       convert -resize ${SIZE}x${SIZE} -quality 60 "$file" "little/${file%.*}.jpg"
+       echo done
+    done
 
 Enfin, l'on peut générer l'epub lui-même. Je vous laisse étudier le fichier utilities/makefile du dépôt.
 
@@ -166,19 +156,15 @@ Enfin, l'on peut générer l'epub lui-même. Je vous laisse étudier le fichier 
 
 L'epub n'étant qu'un container zip, il est évidemment possible de la modifier avant de le reconstituer.
 
-{% highlight bash %}
-unzip -d Jud_Allan-partie-1 Jud_Allan-partie-1.epub
-{% endhighlight %}
+    unzip -d Jud_Allan-partie-1 Jud_Allan-partie-1.epub
 
 Dans mon cas, j'ai adapté le formatage des titres de chapitre et la feuille de style, puis reconstitué l'epub.
 
-{% highlight bash %}
-cd Jud_Allan
-FILE="../output/Jud_Allan-part-1.epub"
-rm -f "$FILE"
-zip -X0 "$FILE" mimetype
-zip -X9Dr "$FILE" META-INF images *.*
-{% endhighlight %}
+    cd Jud_Allan
+    FILE="../output/Jud_Allan-part-1.epub"
+    rm -f "$FILE"
+    zip -X0 "$FILE" mimetype
+    zip -X9Dr "$FILE" META-INF images *.*
 
 Une fois l'epub reconstitué, vous pouvez le charger sur votre liseuse :)
 
