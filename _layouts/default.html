@@ -26,9 +26,16 @@
     <span>Le meilleur du pire de mes flux RSS (et de Twitter)</span></h1>
   </header><!-- fin header -->
 
-  
   {{ content }}
-  
+
+  <aside id="category">
+    <h2>Categories</h2>
+    <ul>
+      {% for category in site.categories %}
+      <li><a href="{{ site.base_url }}/{{ category | first }}">{{ category | first }}</a> ({{ category | last | size }})</li>
+      {% endfor %}
+    </ul>
+  </aside>
   <footer class="footer">
     <section class="contact">
       <ul>
@@ -39,9 +46,15 @@
     </section>
     <section class="contact">
       <ul>
-        {% if site.owner.github %}<li><a href="//github.com/{{ site.owner.github }}/">github.com/{{ site.owner.github }}</a></li>{% endif %}
-        {% if site.owner.twitter %}<li><a href="//twitter.com/{{ site.owner.twitter }}/">twitter.com/{{ site.owner.twitter }}</a></li>{% endif %}
-        {% if site.owner.gnusocial %}<li><a href="//{{ site.owner.gnusocial }}/">{{ site.owner.gnusocial }}</a></li>{% endif %}
+      {% if site.owner.github %}
+        <li><a href="//github.com/{{ site.owner.github }}/">github.com/{{ site.owner.github }}</a></li>
+      {% endif %}
+      {% if site.owner.twitter %}
+        <li><a href="//twitter.com/{{ site.owner.twitter }}/">twitter.com/{{ site.owner.twitter }}</a></li>
+      {% endif %}
+      {% if site.owner.gnusocial %}
+        <li><a href="//{{ site.owner.gnusocial }}/">{{ site.owner.gnusocial }}</a></li>
+      {% endif %}
       </ul>
     </section>
     <aside class="rss">

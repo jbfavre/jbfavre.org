@@ -3,13 +3,48 @@ layout: default
 ---
 
 <section id="post-list">
-    {% for post in site.posts %}
+    {% for post in paginator.posts %}
       <article class="post">
         <header class="post-title">
+          <span class="post-date">{{ post.date | date_to_string }}</span>
           <h2 class="post-title"><a class="post-title" href="{{ post.url }}">{{ post.title }}</a></h2>
-          <span>{{ post.date | date_to_string }}</span> &raquo;
+          <aside class="post-meta">
+            <ul>
+            {% if post.category != nil %}
+              <li>&raquo; <a href="{{ site.base_url }}/{{ post.category }}">{{ post.category }}</a> &laquo;</li>
+            {% endif %}
+            {% if post.tags.size != 0 %}
+              <li>&nbsp;( {{ post.tags | join: ', ' }} )</li>
+            {% endif %}
+            </ul>
+          </aside>
         </header>
-        <section id="post-content" class="post-content"> {{ post.excerpt }}</section>
+        <section class="post-content">
+        {{ post.excerpt }}
+        </section>
       </article>
     {% endfor %}
 </section>
+
+{% if paginator.next_page != nil OR paginator.previous_page != nil %}
+<nav id="paginator">
+  <ul>
+    <li class="older">
+    {% if paginator.next_page != nil %}
+      <a href="{{site.baseurl}}/page{{paginator.next_page}}">&laquo; Older Posts</a>
+    {% else %}
+      &nbsp;
+    {% endif %}
+    </li>
+    {% if paginator.previous_page != nil %}
+      <li class="newer">
+      {% if paginator.previous_page == 1 %}
+        <a href="{{site.baseurl}}/">
+      {% else %}
+        <a href="{{site.baseurl}}/page{{paginator.previous_page}}">
+      {% endif %}
+      Newer Posts &raquo; </a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
