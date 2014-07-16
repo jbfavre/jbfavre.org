@@ -58,9 +58,6 @@ table {
 /*****************************************************************************/
 
 article span {
-  color: #aaa;
-  font-family: Monaco, "Courier New", monospace;
-  font-size: 80%;
 }
 
 
@@ -118,7 +115,7 @@ article span {
     font-size: 80%;
     color: #666;
     border-top: 2px dotted #245476;
-    margin-top: 2em;
+    margin-top: 1em;
     overflow: hidden;
   }
 
@@ -163,20 +160,46 @@ article span {
     /*color: #245476;*/
     color: #9f111b;
   }
+
   h2.post-title {
     font-size: 1.5em;
   }
+
   .post .post-title a {
     text-decoration: none;
   }
+
+    .post .post-meta {
+      color: #245476;
+      font-weight: bold;
+      font-family: Monaco, "Courier New", monospace;
+      font-size: 80%;
+    }
+    .post .post-meta a {
+      color: #245476;
+    }
+    .post .post-meta a:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+    .post .post-tags ul {
+      list-style:none;
+      display:inline;
+    }
+    .post .post-tags li {
+      display:inline;
+    }
+
   .post-content {
     color:#505050;
   }
+
   .post-content a {
     text-decoration: none;
     color: #245476;
     font-weight: bold;
   }
+
   .post-content a:hover {
     text-decoration: underline;
   }
@@ -240,3 +263,15 @@ article span {
     margin-bottom: 1em;
     border-bottom:1px dotted #999;color:#9f111b;
   }
+
+/*****************************************************************************/
+/*
+/* Paginator
+/*
+/*****************************************************************************/
+#paginator {margin-top:1em;font-size:0.8em;font-weight:bold;font-family:Monaco,"Courier New",monospace;}
+#paginator ul {list-style:none;}
+#paginator li {display:inline;}
+#paginator .newer{float:right;}
+#paginator a {color:#245476;text-decoration: none}
+.icon-tag:before { content: url('/images/icon-tag.png'); }
