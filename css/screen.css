@@ -17,7 +17,7 @@ html, body {
 
 body {
   background-color: white;
-  font: 13.34px helvetica, arial, clean, sans-serif;
+  font: 100% helvetica, arial, clean, sans-serif;
   *font-size: small;
   text-align: center;
 }
@@ -44,11 +44,6 @@ a:hover {
 
 a:visited {
   color: #a0a;
-}
-
-table {
-  font-size: inherit;
-  font: 100%;
 }
 
 /*****************************************************************************/
@@ -150,14 +145,17 @@ article span {
 /*****************************************************************************/
 
 .post {
-
+  margin-top: 1em;
 }
 
   /* standard */
 
+  .post .post-date {
+    color: #245476;
+  }
+
   .post .post-title {
     font-weight:bold;
-    /*color: #245476;*/
     color: #9f111b;
   }
 
@@ -172,8 +170,7 @@ article span {
     .post .post-meta {
       color: #245476;
       font-weight: bold;
-      font-family: Monaco, "Courier New", monospace;
-      font-size: 80%;
+      font-size: 0.8em;
     }
     .post .post-meta a {
       color: #245476;
@@ -182,11 +179,11 @@ article span {
       color: #000;
       text-decoration: underline;
     }
-    .post .post-tags ul {
+    .post .post-meta ul {
       list-style:none;
       display:inline;
     }
-    .post .post-tags li {
+    .post .post-meta li {
       display:inline;
     }
 
@@ -238,30 +235,31 @@ article span {
     background-color: #333;
   }
 
-#related {
+#related, #category {
   margin-top: 2em;
 }
-  #related ol, #related ul {
+
+  #related h2, #category h2 {
+    margin-bottom: 1em;
+    border-bottom:1px dotted #999;color:#9f111b;
+  }
+
+  #related ul, #category ul {
     list-style:none;
   }
-  #related span {
+
+  #related span, #category span {
     color: #aaa;
-    font-family: Monaco,"Courier New", Monospace;
     font-size: 80%;
   }
-  #related a {
+  #related a, #category a {
     text-decoration: none;
     color: #245476;
     font-weight: bold;
     font-size: 80%;
   }
-  #related a:hover {
+  #related a:hover, #category a:hover {
     text-decoration: underline;
-  }
-
-  #related h2 {
-    margin-bottom: 1em;
-    border-bottom:1px dotted #999;color:#9f111b;
   }
 
 /*****************************************************************************/
@@ -269,7 +267,7 @@ article span {
 /* Paginator
 /*
 /*****************************************************************************/
-#paginator {margin-top:1em;font-size:0.8em;font-weight:bold;font-family:Monaco,"Courier New",monospace;}
+#paginator {margin-top:1em;font-size:0.8em;font-weight:bold;}
 #paginator ul {list-style:none;}
 #paginator li {display:inline;}
 #paginator .newer{float:right;}
