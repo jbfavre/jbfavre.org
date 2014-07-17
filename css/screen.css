@@ -182,10 +182,13 @@ article span {
     .post .post-meta ul {
       list-style:none;
       display:inline;
-      float: right;
+      /*float: right;*/
     }
     .post .post-meta li {
       display:inline;
+    }
+    .post .post-tags {
+      float:right;
     }
 
   .post-content {
@@ -273,4 +276,3 @@ article span {
 #paginator li {display:inline;}
 #paginator .newer{float:right;}
 #paginator a {color:#245476;text-decoration: none}
-.icon-tag:before { content: url('/images/icon-tag.png'); }

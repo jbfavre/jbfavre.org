@@ -14,7 +14,7 @@
 <meta http-equiv="Last-Modified" content="Mon, 30 Jun 2014 15:03:35 GMT"/>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <!-- link rel="alternate" type="application/rss+xml" title="Blog-notes au format RSS 2.0" href="/rss.xml" / -->
-<link rel="alternate" type="application/atom+xml" title="Blog-notes au format Atom 1.0" href="/atom.xml" />
+<link rel="alternate" type="application/atom+xml" title="Blog-notes au format Atom 1.0" href="{% page_feed_url %}" />
 <link rel="icon" type="image/png" href="http://medias.jbfavre.org/moi.png" />
    <!-- syntax highlighting CSS -->
    <link rel="stylesheet" href="{% minified_css_file %}" type="text/css" />
@@ -31,9 +31,9 @@
   <aside id="category">
     <h2>Categories</h2>
     <ul>
-      {% for category in site.categories %}
-      <li><a href="{{ site.base_url }}/{{ category | first }}">{{ category | first }}</a> ({{ category | last | size }})</li>
-      {% endfor %}
+    {% for category in site.categories %}
+      <li><a href="{{ site.base_url }}/categories/{{ category | first }}">{{ category | first }}</a> ({{ category | last | size }})</li>
+    {% endfor %}
     </ul>
   </aside>
   <footer class="footer">

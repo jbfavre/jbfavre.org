@@ -5,18 +5,20 @@ layout: default
 <section id="content">
   <article class="post">
     <header class="post-title">
-      <span class="post-date">{{ page.date | date_to_string }}</span>
-      <h2 class="post-title"><a class="post-title" href="{{ page.url }}">{{ page.title }}</a></h2>
       <aside class="post-meta">
+        <span class="post-date">{{ page.date | date_to_string }}</span>
         <ul>
         {% if page.category != nil %}
-          <li>&raquo; <a href="{{ site.base_url }}/{{ page.category | downcase }}">{{ page.category }}</a> &laquo;</li>
+          <li class="post-category">
+            &nbsp;in &raquo; <a href="{{ site.base_url }}/{{ page.category | downcase }}">{{ page.category }}</a> &laquo;
+          </li>
         {% endif %}
         {% if page.tags.size != 0 %}
-          <li>&nbsp;( {{ page.tags | join: ', ' }} )</li>
+          <li class="post-tags"> tags: &nbsp;( {{ page.tags | join: ', ' }} )</li>
         {% endif %}
         </ul>
       </aside>
+      <h2 class="post-title"><a class="post-title" href="{{ page.url }}">{{ page.title }}</a></h2>
     </header>
     <section class="post-content">
     {{ content }}

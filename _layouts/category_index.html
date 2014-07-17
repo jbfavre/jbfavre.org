@@ -1,9 +1,8 @@
 ---
 layout: default
 ---
-
-<section id="post-list">
-    {% for post in paginator.posts %}
+<section id="category-list">
+    {% for post in site.categories[page.category] %}
       <article class="post">
         <header class="post-title">
           <aside class="post-meta">
@@ -50,3 +49,4 @@ layout: default
   </ul>
 </nav>
 {% endif %}
+
