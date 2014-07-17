@@ -182,6 +182,7 @@ article span {
     .post .post-meta ul {
       list-style:none;
       display:inline;
+      float: right;
     }
     .post .post-meta li {
       display:inline;

@@ -6,9 +6,8 @@ layout: default
     {% for post in paginator.posts %}
       <article class="post">
         <header class="post-title">
-          <span class="post-date">{{ post.date | date_to_string }}</span>
-          <h2 class="post-title"><a class="post-title" href="{{ post.url }}">{{ post.title }}</a></h2>
           <aside class="post-meta">
+          <span class="post-date">{{ post.date | date_to_string }}</span>
             <ul>
             {% if post.category != nil %}
               <li>&raquo; <a href="{{ site.base_url }}/{{ post.category }}">{{ post.category }}</a> &laquo;</li>
@@ -18,6 +17,7 @@ layout: default
             {% endif %}
             </ul>
           </aside>
+          <h2 class="post-title"><a class="post-title" href="{{ post.url }}">{{ post.title }}</a></h2>
         </header>
         <section class="post-content">
         {{ post.excerpt }}
