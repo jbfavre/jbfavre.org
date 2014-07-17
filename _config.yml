@@ -20,7 +20,7 @@ name: "Mon blog-notes à moi que j'ai"
 description: "Le meilleur du pire de mes flux RSS (et de Twitter)"
 
 
-permalink: pretty
+permalink: /:year/:month/:day/:title
 highlighter: false
 excerpt_separator: "<!-- -->"
 paginate: 10
