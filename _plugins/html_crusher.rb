@@ -21,6 +21,7 @@
 # It removes spaces between HTML, excepted within
 # <textarea> and <pre> code, so you don't get into trouble!
 # 
+# https://gist.github.com/mytharcher/2758691
 
 require 'packr'
 
