@@ -32,7 +32,7 @@
     <h2>Categories</h2>
     <ul>
     {% for category in site.categories %}
-      <li><a href="{{ site.base_url }}/categories/{{ category | first }}">{{ category | first }}</a> ({{ category | last | size }})</li>
+      <li><a href="{{ site.base_url }}/categories/{{ category | first }}/">{{ category | first }}</a> ({{ category | last | size }})</li>
     {% endfor %}
     </ul>
   </aside>

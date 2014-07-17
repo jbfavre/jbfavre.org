@@ -10,7 +10,7 @@ layout: default
         <ul>
         {% if page.category != nil %}
           <li class="post-category">
-            &nbsp;in &raquo; <a href="{{ site.base_url }}/{{ page.category | downcase }}">{{ page.category }}</a> &laquo;
+            &nbsp;in &raquo; {{ page.categories | category_links }} &laquo;
           </li>
         {% endif %}
         {% if page.tags.size != 0 %}

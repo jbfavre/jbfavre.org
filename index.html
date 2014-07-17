@@ -3,29 +3,29 @@ layout: default
 ---
 
 <section id="post-list">
-    {% for post in paginator.posts %}
-      <article class="post">
-        <header class="post-title">
-          <aside class="post-meta">
-            <span class="post-date">{{ post.date | date_to_string }}</span>
-            <ul>
-            {% if post.category != nil %}
-              <li class="post-category">
-                &nbsp;in &raquo; {{ post.categories | category_links }} &laquo;
-              </li>
-            {% endif %}
-            {% if post.tags.size != 0 %}
-              <li class="post-tags">tags: &nbsp;( {{ post.tags | join: ', ' }} )</li>
-            {% endif %}
-            </ul>
-          </aside>
-          <h2 class="post-title"><a class="post-title" href="{{ post.url }}">{{ post.title }}</a></h2>
-        </header>
-        <section class="post-content">
-        {{ post.excerpt }}
-        </section>
-      </article>
-    {% endfor %}
+{% for post in paginator.posts %}
+  <article class="post">
+    <header class="post-title">
+      <aside class="post-meta">
+        <span class="post-date">{{ post.date | date_to_string }}</span>
+        <ul>
+        {% if post.category != nil %}
+          <li class="post-category">
+            &nbsp;in &raquo; {{ post.categories | category_links }} &laquo;
+          </li>
+        {% endif %}
+        {% if post.tags.size != 0 %}
+          <li class="post-tags">tags: &nbsp;( {{ post.tags | join: ', ' }} )</li>
+        {% endif %}
+        </ul>
+      </aside>
+      <h2 class="post-title"><a class="post-title" href="{{ post.url }}">{{ post.title }}</a></h2>
+    </header>
+    <section class="post-content">
+    {{ post.excerpt }}
+    </section>
+  </article>
+{% endfor %}
 </section>
 
 {% if paginator.next_page != nil OR paginator.previous_page != nil %}
