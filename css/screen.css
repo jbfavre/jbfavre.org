@@ -215,6 +215,14 @@ article span {
   .post-content ol {
     margin-left: 1.35em;
   }
+  .post-content dl {
+    margin: 1em 0;
+  }
+  .post-content dd {
+    margin: 0 0 1em 2em;
+    padding-left: 10px;
+    border-left: 2px solid #aa0 ;
+  }
 
   .post-content code {
     border: 1px solid #ddd;
