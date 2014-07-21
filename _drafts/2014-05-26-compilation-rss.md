@@ -6,7 +6,7 @@ category: veille
 
 La moisson de liens pour la semaine du 19 au 23 mai 2014
 
-Ils ont, pour la plupart été publiés sur mon compte Twitter.
+Ils ont, pour la plupart été publiés sur mon compte Twitter.  
 Les voici rassemblés pour ceux qui les auraient raté.
 
 <!-- -->
