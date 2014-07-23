@@ -18,6 +18,10 @@ Les voici rassemblés pour ceux qui les auraient raté.
 PoPs are small scale data centers with mostly network equipment and proxy servers; that act as end-points for user's TCP connection requests. PoP would establish and hold that connection while fetching the user-requested content from the data center.  
 In this post, we will talk about the Real User Monitoring (RUM) based data-driven approach LinkedIn took to decide optimal mapping of user requests to PoPs.
 
+[StackOverflow Update: 560M Pageviews a Month, 25 Servers, and It's All About Performance](http://highscalability.com/blog/2014/7/21/stackoverflow-update-560m-pageviews-a-month-25-servers-and-i.html)
+:  The network of sites that make up StackExchange, which includes StackOverflow, is now ranked 54th for traffic in the world; they have 110 sites and are growing at a rate of 3 or 4 a month; 4 million users; 40 million answers; and 560 million pageviews a month.  
+This is with just 25 servers. For everything. That’s high availability, load balancing, caching, databases, searching, and utility functions. All with a relative handful of employees. Now that’s quality engineering.
+
 [Best practices REST API from scratch – Introduction](http://www.sitepoint.com/best-practices-rest-api-scratch-introduction/)
 :  The current internet ecosystem has literally been invaded by APIs, and for good reasons. By using third party APIs in your products or services, you have access to a ton of useful features — such as authentication or storage services — that can benefit both you and your users. By exposing your own API, your application becomes “part of the mix” and will be used in ways you’ve never thought before… if you do it the right way, obviously.
 
@@ -39,4 +43,41 @@ Our revenue data needs to be aggregated into several different kinds of time ser
 :  While the new Spark Developer training from Cloudera University is valuable for developers who are new to Big Data, it’s also a great call for MapReduce veterans.  
 When I set out to learn Apache Spark (which ships inside Cloudera’s open source platform) about six months ago, I started where many other people do: by following the various online tutorials available from UC Berkeley’s AMPLab, the creators of Spark. I quickly developed an appreciation for the elegant, easy-to-use API and super-fast results, and was eager to learn more.
 
+[Building a food recommendation engine with Spark / MLlib and Play](http://chimpler.wordpress.com/2014/07/22/building-a-food-recommendation-engine-with-spark-mllib-and-play/)
+: Recommendation engines have become very popular in the last decade with the explosion of e-commerce, on demand music and movie services, dating sites, local reviews, news aggregation and advertising (behavioral targeting, intent targeting, …). Depending on your past actions (e.g., purchases, reviews left, pages visited, …) or your interests (e.g., Facebook likes, Twitter follows), the recommendation engine will present other products that might interest you using other users actions and user behaviors (page clicks, page views, time spent on page, clicks on images/reviews, …).
 
+### System
+
+[17 hpacucli Command Examples for Linux on HP Servers](http://www.thegeekstuff.com/2014/07/hpacucli-examples/)
+:  HPACUCLI stands for HP Array Configuration Utility CLI.  
+As the name suggests, this utility is for HP servers.  
+Hpacucli is used to create, delete and repair the logical and physical drives on the smart array controllers in HP servers.  
+To use hpacucli, download and install the latest version of hpacucli rpm from the HP website on your Linux server.
+
+### Databases
+
+[Modèle de stockage physique dans Cassandra : Détail sur le stockage physique dans C*](http://www.infoq.com/fr/articles/modele-stockage-physique-cassandra-details)
+:  Dans cet article, nous détaillons la façon dont le moteur de stockage organise les données sur disque et les différents types de colonnes que l'on trouve dans C*. Si vous avez raté le premier article d'introduction au modèle de données dans C*, c'est par ici: [Modèle de stockage physique dans Cassandra](http://www.infoq.com/fr/articles/modele-stockage-physique-cassandra)
+
+[Reference architecture for a write-intensive MySQL deployment](http://www.mysqlperformanceblog.com/2014/07/22/reference-architecture-for-a-write-intensive-mysql-deployment/)
+:  We designed Percona Cloud Tools (both hardware and software setup) to handle a very high-intensive MySQL write workload. For example, we already observe inserts of 1bln+ datapoints per day. So I wanted to share what kind of hardware we use to achieve this result.
+
+[Why TokuDB hates Transparent HugePages](http://www.mysqlperformanceblog.com/2014/07/23/why-tokudb-hates-transparent-hugepages/)
+:  If you try to install the TokuDB storage engine on a modern Linux distribution it might fail with following error message:
+
+    > 2014-07-17 19:02:55 13865 [ERROR] TokuDB will not run with transparent huge pages enabled.
+      2014-07-17 19:02:55 13865 [ERROR] Please disable them to continue.
+      2014-07-17 19:02:55 13865 [ERROR] (echo never > /sys/kernel/mm/transparent_hugepage/enabled)
+
+    You might be curious why TokuDB refuses to start with Transparent HugePages. Are they not a good thing… allowing smaller kernel page tables and less TLB misses when accessing data in the buffer pool? I was curious, so I asked Tim Callaghan this very question.
+
+### Programming
+
+[Explaining Ark Part 1: The Basics](http://www.tokutek.com/2014/07/explaining-ark-part-1-the-basics/)
+:   Ark is a consensus algorithm similar to Raft and Paxos we’ve developed for TokuMX and MongoDB. The purpose of Ark is to fix known issues in elections and failover. While the tech report detailing Ark explains everything formally, over the next few blog posts, I will go over Ark in layman’s terms.  
+Note that everything I explain in these blog posts is covered in the tech report, so if you’ve read the tech report, you won’t find anything new here.
+
+### Web Performances
+
+[New findings: The median top 100 ecommerce page takes 6.2 seconds to render primary content](http://www.webperformancetoday.com/2014/07/23/summer2014-ecommerce-page-speed-web-performance/)
+:  We measure and analyze the performance of the top 500 retail websites.* And every quarter, I’ve grown accustomed to the persistence of two trends: pages are growing bigger and, not coincidentally, slower.
