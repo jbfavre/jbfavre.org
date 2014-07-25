@@ -29,5 +29,5 @@ twitter: jbfavre
 #  twitter: jbfavre
 #  gnusocial: status.jbfavre.org
 
-#permalink: /:year/:month/:day/:title
+permalink: /:year/:month/:day/:title
 #excerpt_separator: "<!-- -->"
