@@ -379,7 +379,7 @@ margin on the iframe, cause it breaks stuff. */
 
 /* the image for the site header*/
 .site-head{
-    background-image: url('../images/background-header.jpg');
+    background-image: url('../images/background-header-open-book.jpg');
     background-repeat: no-repeat;
     background-position: 50%;
 }
