@@ -1,26 +1,33 @@
-title: Mon Blog-notes à moi que j'ai
+name: Mon blog-notes à moi que j'ai
 description: Le meilleur du pire de mes flux RSS (et de Twitter)
-logo: images/moi.png
-
-url: "//blog-notes.jbfavre.org"
-
-owner:
-  name: Jean Baptiste Favre
-  url: /cv
-  position: Network &amp; System Architect
-  company: BlaBlaCar
-  email: webmaster@jbfavre.org
-  github: jbfavre
-  twitter: jbfavre
-  gnusocial: status.jbfavre.org
+meta_description: "Your New Jekyll Site, Blogging about stuffs"
+logo: images/me.jpg
+baseurl: /
 
 timezone: Europe/Paris
 
-name: "Mon blog-notes à moi que j'ai"
-description: "Le meilleur du pire de mes flux RSS (et de Twitter)"
-
-
-permalink: /:year/:month/:day/:title
+markdown: redcarpet
 highlighter: false
-excerpt_separator: "<!-- -->"
-paginate: 10
+logo: false
+paginate: 15
+
+
+# Details for the RSS feed generator
+url:            'blog url'
+author:         'Jean-Baptiste Favre'
+
+github: jbfavre
+twitter: jbfavre
+
+#owner:
+#  name: Jean Baptiste Favre
+#  url: /cv
+#  position: Network &amp; System Architect
+#  company: BlaBlaCar
+#  email: webmaster@jbfavre.org
+#  github: jbfavre
+#  twitter: jbfavre
+#  gnusocial: status.jbfavre.org
+
+#permalink: /:year/:month/:day/:title
+#excerpt_separator: "<!-- -->"
