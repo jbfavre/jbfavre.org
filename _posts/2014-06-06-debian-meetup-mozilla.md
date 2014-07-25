@@ -5,11 +5,8 @@ category: debian
 tags: [talks,backport,jenkins]
 ---
 
-J'ai eu l'occasion d'y présenter l'utilisation de Debian par mon employeur: BlaBlaCar.
-
+J'ai eu l'occasion d'y présenter l'utilisation de Debian par mon employeur: BlaBlaCar.  
 Debian est déployé sur 100% de notre parc, soit une centaine de serveurs, dont 50% de machines virtuelles.  
-
-<!-- -->
 
 ### Installation
 

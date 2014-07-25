@@ -6,11 +6,8 @@ tags: [elk,talks]
 ---
 
 La dernière édition de Pas Sage En Seine s'est déroulée du 26 au 29 juin 2014.  
-À cette occasion, j'ai eu l'opportunité de présenter une solution de gestion & analyse de logs basée sur la pile logicielle Elasticsearch, Logstash et Kibana.
-
+À cette occasion, j'ai eu l'opportunité de présenter une solution de gestion & analyse de logs basée sur la pile logicielle Elasticsearch, Logstash et Kibana.  
 Il s'agissait également de montrer dans quelle mesure cette solution pouvait être utilisée pour traiter tout type d'évènements ou presque.
-
-<!-- -->
 
 À titre de démo, j'ai choisi de scruter Twitter à la recherche des mots-dièses "officiels" de l'évènement, **PSES** et **PSES2014**.
 

@@ -5,9 +5,10 @@ category: bookscanner
 tags: [diy, livres]
 ---
 
+J'ai eu l'occasion de numériser un bel ouvrage, édition de 1932 d'une oeuvre écrite en 1909: "Jud Allan, Roi des Lad's".  
 Pour les gens pressés ou ceux que la technique n'amuse pas, la version courte est visible sur le blog du bookscanner.
 
-Prenez:
+Prenez:  
 
 * Un doux dingue qui construit une machine "infernale" dans un garage
 * Une oeuvre de 1909, dans le domaine public, qui n'est plus éditée
@@ -15,8 +16,6 @@ Prenez:
 * Beaucoup de logiciel libre et d'envie
 
 Vous obtiendrez deux epub, gratuits naturellement, et je l'espère parfaits !
-
-<!-- -->
 
 ### 2 mois
 
