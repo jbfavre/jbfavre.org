@@ -1,52 +1,57 @@
 ---
 layout: default
+title: Home
+cover: false
 ---
 
-<section id="post-list">
-{% for post in paginator.posts %}
-  <article class="post">
-    <header class="post-title">
-      <aside class="post-meta">
-        <span class="post-date">{{ post.date | date_to_string }}</span>
-        <ul>
-        {% if post.category != nil %}
-          <li class="post-category">
-            &nbsp;in &raquo; {{ post.categories | category_links }} &laquo;
-          </li>
-        {% endif %}
-        {% if post.tags.size != 0 %}
-          <li class="post-tags">tags: &nbsp;( {{ post.tags | join: ', ' }} )</li>
-        {% endif %}
-        </ul>
-      </aside>
-      <h2 class="post-title"><a class="post-title" href="{{ post.url }}">{{ post.title }}</a></h2>
-    </header>
-    <section class="post-content">
-    {{ post.excerpt }}
-    </section>
-  </article>
-{% endfor %}
-</section>
+<header class="site-head" {% if page.cover %} style="background-image: url({{ page.cover }})"{% endif %}>
+    <div class="vertical">
+        <div class="site-head-content" class="inner">
+            {% if page.logo %}
+                <a class="blog-logo" href="{{ site.baseurl }}">
+                    <img src="{{ page.logo }}" alt="Blog Logo" />
+                </a>
+            {% endif %}
+            <h1 class="blog-title">{{ site.name }}</h1>
+            <h2 class="blog-description"> 
+                {{ site.description }}
+            </h2>
+        </div>
+    </div>
+</header>
 
-{% if paginator.next_page != nil OR paginator.previous_page != nil %}
-<nav id="paginator">
-  <ul>
-    <li class="older">
-    {% if paginator.next_page != nil %}
-      <a href="{{site.baseurl}}/page{{paginator.next_page}}">&laquo; Older Posts</a>
-    {% else %}
-      &nbsp;
-    {% endif %}
-    </li>
-    {% if paginator.previous_page != nil %}
-      <li class="newer">
-      {% if paginator.previous_page == 1 %}
-        <a href="{{site.baseurl}}/">
-      {% else %}
-        <a href="{{site.baseurl}}/page{{paginator.previous_page}}">
-      {% endif %}
-      Newer Posts &raquo; </a></li>
-    {% endif %}
-  </ul>
-</nav>
-{% endif %}
+<main class="content" role="main">
+
+    {% for post in paginator.posts %}
+
+    <article class="post">
+        <header class="post-header">
+            <span class="post-meta"><time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date_to_string }}</time> {{!tags prefix="on "}}</span>
+            <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+
+        </header>
+        <section class="post-excerpt">
+            {{ post.excerpt }}
+        </section>
+    </article>
+    {% endfor %}
+
+    <nav class="pagination" role="pagination">
+
+        {% if paginator.previous_page %}
+          {% if paginator.previous_page == 1 %}
+          <a class="newer-posts" href="/" title="Previous Page">&laquo; Newer Posts</a>
+          {% else %}
+          <a class="newer-posts" href="/page{{ paginator.previous_page }}/" title="Previous Page">&laquo; Nouveaux Posts</a>
+          {% endif %}
+        {% endif %}
+
+        <span class="page-number"> Page {{paginator.page}} de {{paginator.total_pages}} </span>
+        
+        {% if paginator.next_page %} 
+        <a class="older-posts" href="/page{{ paginator.next_page }}/" title="Next Page">Anciens Posts &raquo;</a>
+        {% endif %} 
+    </nav>
+    
+
+</main>
