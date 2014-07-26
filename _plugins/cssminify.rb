@@ -20,7 +20,7 @@ module Jekyll
     def generate(site)
       config = Jekyll::CssMinifyGenerator.get_config
 
-      files_to_minify = config['files'] || get_css_files(site, 'css/')
+      files_to_minify = config['files'] || get_css_files(site, 'assets/css/')
 
       last_modified = files_to_minify.reduce( Time.at(0) ) do |latest,filepath|
         modified = File.mtime(filepath)
