@@ -2137,29 +2137,45 @@ body {
 </style>
 <div class="no-touch boxshadow borderradius rgba mediaquery card-bd ltr font-wf-sans border-blockquote theme-light">
 
+<style>
+* {
+margin: 0px;
+box-sizing: border-box;
+}
+.card {
+color: #464646;
+font-size: 16px;
+position: relative;
+width: auto;
+z-index: 1;
+}
+.hdr {
+  padding: 5px 0px;
+}
+</style>
+
 {% for post in site.posts | limit: 10 %}
 
-<article class="card article editable">
-  <header class="hdr">
-    <div class="provider provider-gt-35">
-      <img class="provider-favicon" src="http://medias.jbfavre.org/moi.png" height="16" width="16">
-      <span class="provider-name">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date_to_string }}</time>
-        &nbsp;{{!tags prefix="on "}}
-      </span>
-      <span class="author">{{ site.owner }}</span>
-      <span class="via">{{post.category | prepend: "on "}}</span>
-    </div>
-  </header>
+<article class="card article">
+  <header class="hdr"></header>
   <section style="border-left-color: rgb(194, 228, 122);" class="bd">
     <div class="pair-bd">
       <div class="txt-bd">
         <h1 class="title is-editable-txt">
           <a href="//{{ site.domain }}{{site.baseurl }}{{ post.url }}" title="{{ site.name }}: {{ post.title }}">{{ post.title }}</a>
         </h1>
-        <p class="description is-editable-txt">{{ post.excerpt }}<a href="#" class="is-editable-delete"></a></p>
+        <p class="description is-editable-txt">{{ post.excerpt }}</p>
         <a class="action" href="//{{ site.domain }}{{site.baseurl }}{{ post.url }}" title="{{ site.name }}: {{ post.title }}">Read more &gt;</a>
       </div>
+    </div>
+    <div class="provider provider-gt-35">
+      <!-- img class="provider-favicon" src="http://medias.jbfavre.org/moi.png" height="16" width="16" -->
+      <span class="provider-name">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date_to_string }}</time>
+        &nbsp;{{!tags prefix="on "}}
+      </span>
+      <span class="author">{{ site.owner }}</span>
+      <span class="via">{{post.category | prepend: "on "}}</span>
     </div>
   </section>
 </article>
