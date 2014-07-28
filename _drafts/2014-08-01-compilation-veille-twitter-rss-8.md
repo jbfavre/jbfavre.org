@@ -48,12 +48,41 @@ Tsung est un outil de stress-test écrit en Erlang et distribué sous licence GP
 :  For various reasons, including performance and cost, Twitter has poured significant engineering effort into breaking down the site backend into smaller JVM based services. As a nice side effect we’ve been able to open source several of the libraries and other useful tools that came out of this effort.  
 While there is a fair amount of information about these projects available as docs or slides I found no simple, high level introduction to what we can unofficially call the Twitter stack. So here it is. It’s worth noting that all this information is about open source projects, that it is public already and that I am not writing this as part of my job at Twitter or on their behalf.
 
+[Revisiting 1 Million Writes per second](http://techblog.netflix.com/2014/07/revisiting-1-million-writes-per-second.html)
+:  we showed how Cassandra (C*) scales linearly as you add more nodes to a cluster. With the advent of new EC2 instance types, we decided to revisit this test. Unlike the initial post, we were not interested in proving C*’s scalability. Instead, we were looking to quantify the performance these newer instance types provide.  
+What follows is a detailed description of our new test, as well as the throughput and latency results of those tests.
+
+### Programing
+
+[Explaining Ark Part 2: How Elections and Failover Currently Work](http://www.tokutek.com/2014/07/explaining-ark-part-2-how-elections-and-failover-currently-work/)
+:  This is the second post in a series of posts that explains Ark, a consensus algorithm we’ve developed for TokuMX and MongoDB to fix known issues in elections and failover. The tech report we released last week describes the algorithm in full detail. These posts are a layman’s explanation.
+
+### CLoud
+
+[Elastic Load Balancing Connection Timeout Management](https://aws.amazon.com/blogs/aws/elb-idle-timeout-control/)
+:  When your web browser or your mobile device makes a TCP connection to an Elastic Load Balancer, the connection is used for the request and the response, and then remains open for a short amount of time for possible reuse. This time period is known as the idle timeout for the Load Balancer and is set to 60 seconds. Behind the scenes, Elastic Load Balancing also manages TCP connections to Amazon EC2 instances; these connections also have a 60 second idle timeout. 
+
+[I Have A Cloud...Now What? - Part 1: Building a 3-tier Webapp](https://developer.rackspace.com/blog/i-have-a-cloud-dot-dot-dot-now-what-part-1-building-a-3-tier-webapp/)
+:  When we meet with customers, a constant set of questions we get asked goes something like this: "OK, now that I have access to a cloud, what do I do with it? How can I make sure I take full advantage of my cloud? How do I properly architect my webapps to leverage the resources cloud makes available to me?"  
+All of these questions are great and merit a worthy answer. However, the truth is that talking about it can only get you so far - insert Project Touchstone: a collection of mini projects meant to extensively showcase how one should architect, consume, organize and orchestrate real-world web stacks on the infrastructures provided by the Rackspace Public & Private cloud.
+
 ### Privacy
 
 [Meet the online tracking device that is virtually impossible to block](http://www.propublica.org/article/meet-the-online-tracking-device-that-is-virtually-impossible-to-block)
 :  A new, extremely persistent type of online tracking is shadowing visitors to thousands of top websites, from WhiteHouse.gov to YouPorn.com.  
 First documented in a forthcoming paper by researchers at Princeton University and KU Leuven University in Belgium, this type of tracking, called canvas fingerprinting, works by instructing the visitor’s Web browser to draw a hidden image. Because each computer draws the image slightly differently, the images can be used to assign each user’s device a number that uniquely identifies it.
 
-### Android
+### Database
 
-[
+[What I learned while migrating a customer MySQL installation to Amazon RDS](http://www.mysqlperformanceblog.com/2014/07/28/what-i-learned-while-migrating-a-customer-mysql-installation-to-amazon-rds/)
+:  Hi, I recently had the experience of assisting with a migration of a customer MySQL installation to Amazon RDS (Relational Database Service). Amazon RDS is a great platform for hosting your MySQL installation
+
+[Apache Cassandra & Python for the The New York Times ⨍aбrik Platform](http://planetcassandra.org/blog/post/apache-cassandra-and-python-for-the-new-york-time-fabrik-platform/)
+:   you’ll learn about how Apache Cassandra is used with Python in the NY Times ⨍aбrik messaging platform. Michael will start his talk off by diving into an overview of the NYT⨍aбrik global message bus platform and its “memory” features and then discuss their use of the open source Apache Cassandra Python driver by DataStax. Progressive benchmark to test features/performance will be presented: from naive and synchronous to asynchronous with multiple IO loops; these benchmarks tailored to usage at the NY Times. Code snippets, followed by beer, for those who survive. All code available on Github!  
+{% oembed http://www.youtube.com/watch?v=ruKXgm2gEnU %}
+
+### DNS
+
+[delv, le futur outil principal de déboguage de DNSSEC ?](http://www.bortzmeyer.org/delv.html)
+:  La version 9.10 de BIND vient avec un nouvel outil de déboguage en ligne de commande, delv. Qu'apporte-t-il par rapport à dig ? C'est surtout pour ce qui concerne DNSSEC qu'il est utile.  
+L'outil de base de celui qui débogue un problème DNS, l'équivalent de ce que sont ping et traceroute pour l'ingénieur réseaux, c'est dig. Cet outil permet de récupérer des données DNS et de les afficher. Avec le DNS traditionnel, on n'avait pas besoin de plus. Mais avec DNSSEC, un problème supplémentaire survient : les données obtenues sont-elles vérifiées cryptographiquement ? dig avait bien une option +sigchase pour tester cela mais, très boguée, elle est restée peu connue. On n'avait donc pas d'outil simple, en ligne de commande, pour valider du DNSSEC. On a bien sûr drill (livré avec ldns) mais son option -S est très bavarde.
