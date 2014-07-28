@@ -4,12 +4,9 @@ title: "Compilation veille Twitter & RSS #5"
 category: veille
 ---
 
-La moisson de liens pour les semaines du 23 au 27 juin 2014 ainsi que du 30 juin au 4 juillet 2014.
-
+La moisson de liens pour les semaines du 23 au 27 juin 2014 ainsi que du 30 juin au 4 juillet 2014.  
 Ils ont, pour la plupart été publiés sur mon compte Twitter.  
 Les voici rassemblés pour ceux qui les auraient raté.
-
-<!-- -->
 
 ### Tools
 

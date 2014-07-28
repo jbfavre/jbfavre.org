@@ -4,12 +4,9 @@ title: "Compilation veille Twitter & RSS #3"
 category: veille
 ---
 
-La moisson de liens pour la semaine du 9 au 13 juin 2014.
-
+La moisson de liens pour la semaine du 9 au 13 juin 2014.  
 Ils ont, pour la plupart été publiés sur mon compte Twitter.  
 Les voici rassemblés pour ceux qui les auraient raté.
-
-<!-- -->
 
 #### Cloud
 
