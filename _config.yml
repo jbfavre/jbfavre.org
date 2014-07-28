@@ -2,7 +2,8 @@ name: Mon blog-notes à moi que j'ai
 description: Le meilleur du pire de mes flux RSS (et de Twitter)
 meta_description: "Your New Jekyll Site, Blogging about stuffs"
 logo: images/me.jpg
-baseurl: /
+baseurl: ""
+domain: blog.jbfav.re
 
 timezone: Europe/Paris
 
