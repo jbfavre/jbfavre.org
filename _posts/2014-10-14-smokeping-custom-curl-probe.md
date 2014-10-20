@@ -2,6 +2,7 @@
 layout: post
 title: "Smokeping custom Curl probe"
 category: monitoring
+tags: [smokeping,perl]
 ---
 
 	

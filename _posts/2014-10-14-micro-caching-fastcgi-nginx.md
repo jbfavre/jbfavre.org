@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Micro-caching & Nginx"
-category: "web servers"
+category: sysadmin
+tags: [nginx,fastcgi,performances]
 ---
 
 When you want to speed up you web server, you usually try to setup caching.

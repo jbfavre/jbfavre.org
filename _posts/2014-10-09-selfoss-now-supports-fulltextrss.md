@@ -2,6 +2,7 @@
 layout: post
 title: "SelfOSS now supports FullTextRSS"
 category: dev
+tags: [selfoss,php]
 ---
 	
 I'm very happy we finally found a solution to integrate it to main [SelfOSS](https://github.com/SSilence/SelfOSS) repository.

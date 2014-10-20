@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "How to enable Twitter cards"
-category: dev,twitter
+category: dev
+tags: [twitter]
 ---
 
 	
