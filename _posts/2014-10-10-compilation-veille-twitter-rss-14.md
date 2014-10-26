@@ -139,7 +139,7 @@ This blog tries to demystify the preconfigured Elasticsearch settings and discus
 
 [Playing HTTP Tricks with Nginx](http://www.elasticsearch.org/blog/playing-http-tricks-nginx/)
 : One of the defining features of Elasticsearch is that it’s exposed as a (loosely) RESTful service over HTTP.  
-The benefits are easy to spell out, of course: the API is familiar and predictable to all web developers. It’s easy to use with “bare hands”&#157; via the curl command, or in the browser. It’s easy to write API wrappers in various programming languages.  
+The benefits are easy to spell out, of course: the API is familiar and predictable to all web developers. It’s easy to use with "bare hands" via the curl command, or in the browser. It’s easy to write API wrappers in various programming languages.  
 Nevertheless, the importance of the HTTP-based nature of Elasticsearch is rooted deeper: in the way it fits into the existing paradigm of software development and architecture.
 
 [Kibana 4 Beta 1 released](http://www.elasticsearch.org/blog/kibana-4-beta-1-released/)

@@ -46,7 +46,7 @@ CloudFlare’s Flexible SSL mode is the default for CloudFlare sites on the Free
 [How to Create a Data-driven Culture](http://blog.pagerduty.com/2014/10/how-to-create-a-data-driven-culture/?utm_source=rss&utm_medium=rss&utm_campaign=how-to-create-a-data-driven-culture)
 : In tech, there’s no shortage of data. It can help you manage your systems and teams better, but getting the most out of the data available to you is about more than just getting the numbers. You need to have a culture that pushes to make and measure the success of decisions with data. At least in theory, relying on data lets managers not only make good decisions with lower risk but also have the confidence to make them quickly. It also provides a way to know whether a particular decision paid off.
 
-[Apache Spark: distributed data processing faster than Hadoop](http://www.datasciencecentral.com/xn/detail/6448529:BlogPost:208998
+[Apache Spark: distributed data processing faster than Hadoop](http://www.datasciencecentral.com/xn/detail/6448529:BlogPost:208998)
 : Apache Spark, another apache licensed top-level project that could perform large scale data processing way faster than Hadoop (I am referring to MR1.0 here). It is possible due to Resilient Distributed Datasets concept that is behind this fast data processing. RDD is basically a collection of objects, spraed across a cluster stored in ram or disk, automatically rebuilt on failure. It is purpose is to support higher-level, parallel operations on data as straightforward as possible.
 
 [Apache Spark: data processing engine for cluster computing](http://datasciencehacks.wordpress.com/2014/09/12/apache-spark-data-processing-engine-for-cluster-computing/)
