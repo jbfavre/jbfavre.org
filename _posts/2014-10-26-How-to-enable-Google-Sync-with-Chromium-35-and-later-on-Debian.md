@@ -15,7 +15,7 @@ Details are available from [Chromium developers documentation](http://www.chromi
 
 Registration to chromium-dev is quite obvious, even without receiving any mail. I won't get into details here.
 
-### Project & API key creation
+### Created project & API keys
 
 Go to [https://cloud.google.com/console](https://cloud.google.com/console) and login with your Gmail credentials.
 
@@ -42,7 +42,10 @@ To have full Chromium features, you could also enable following API:
 - Time Zone API
 - Google+ API
 
-Once done (API activation can take some time), go to `API & Auth > Consent Screen` and choose an email adress as well as a `Product Name` (that's the point I missed the first time I tried); then click `Save`.
+Here is the point I missed when I first created my API keys.  
+The result was an error when signin to Chromium whith error message `Service unavailable. Try again later.`.
+
+To avoid that error, go to `API & Auth > Consent Screen` and choose an email adress as well as a `Product Name`; then click `Save`.
 
 ![Choose Product Name for consent screen](//medias.jbfavre.org/blog-notes/Google-API-step5.png)
 
