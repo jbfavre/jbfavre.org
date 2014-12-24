@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Local FulltextRSS siteconfig with Privoxy"
-category: hack, code, JS
+category: dev
+tags: [hack,js]
 ---
 
 [FulltextRSS from fivefilters.org](http://fivefilters.org/content-only/) allows
