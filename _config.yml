@@ -14,7 +14,7 @@ paginate: 15
 
 
 # Details for the RSS feed generator
-url:            'http://blog.jbfav.re/'
+url:            'blog.jbfav.re'
 author:         'Jean-Baptiste Favre'
 
 github: jbfavre
