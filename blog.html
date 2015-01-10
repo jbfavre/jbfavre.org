@@ -220,7 +220,7 @@ box-sizing: border-box;
   <div class="bd" style="border-left-color: rgb(194, 228, 122);">
     <header class="card">
       <h1 class="title">
-        <a href="//{{ site.domain }}{{site.baseurl }}{{ post.url }}" title="{{ site.name }}: {{ post.title }}">{{ post.title }}</a>
+        <a href="//{{ site.url }}{{site.baseurl }}{{ post.url }}" title="{{ site.name }}: {{ post.title }}">{{ post.title }}</a>
       </h1>
     </header>
     <aside class="provider card">
@@ -228,11 +228,11 @@ box-sizing: border-box;
       <span class="provider-name">
         <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date_to_string }}</time>
       </span>
-      <span class="category">{{post.category | prepend: "on " }}</span>
+      <span class="category">{{post.categories | array_to_sentence_string | prepend: "in " }}</span>
     </aside>
     <section class="card">
       <p class="description">{{ post.excerpt | remove: "<p>" | remove: "</p>"}}</p>
-      <nav><p><a class="action" href="//{{ site.domain }}{{site.baseurl }}{{ post.url }}" title="{{ site.name }}: {{ post.title }}">Read more &gt;</a></p></nav>
+      <nav><p><a class="action" href="//{{ site.url }}{{site.baseurl }}{{ post.url }}" title="{{ site.name }}: {{ post.title }}">Read more &gt;</a></p></nav>
     </section>
   </div>
 </article>

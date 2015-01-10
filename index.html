@@ -27,6 +27,12 @@ cover: false
     <article class="post">
         <header class="post-header">
             <span class="post-meta"><time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date_to_string }}</time> {{!tags prefix="on "}}</span>
+                {% if post.categories %}
+                        dans 
+                        {% for category in post.categories %}
+            <a href="/categories/{{category}}/">{{category}}</a>
+                        {% endfor %}
+                {% endif %}
             <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
 
         </header>
