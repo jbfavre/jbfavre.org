@@ -858,8 +858,12 @@ margin on the iframe, cause it breaks stuff. */
     
     .site-head{
         padding: 0;
+	background:none;
     }
     
+    .up{
+        display: none;
+    }
     .vertical{
         display: block;
     }
