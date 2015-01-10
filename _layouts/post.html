@@ -2,34 +2,23 @@
 layout: default
 disqus: false
 archive: false
+cover: false
 ---
 
-<main class="content-post" role="main">
-    
-    <header class="post-header">
-       <div class="small-header"></div>
-        <a id="blog-logo" href="{{site.baseurl}}">
-            {% if site.logo %}
-            <img src="{{site.logo}}" alt="{{ site.name }}" />
-            {% else %}
-            <span class="blog-title">&larr; La page du début</span>
-            {%endif%} 
-        </a>
-    </header>
-
+<main class="content" role="main">
     <article class="post">
-        
-        <span class="post-meta">
+        <header class="post-header">
+            <h1 class="post-title">{{ page.title }}</h1>
+            <span class="post-meta">
         	<time datetime="{{ page.date | date:"%d-%m-%Y" }}">{{ page.date | date_to_string }}</time>
         	{% if page.categories %}
         		dans
 	        	{% for category in page.categories %}
-            <a href="/categories/{{category}}/">{{category}}</a>
+            		    <a href="/categories/{{category}}/">{{category}}</a>
 	        	{% endfor %}
 	        {% endif %}
-       	</span>
-
-        <h1 class="post-title">{{ page.title }}</h1>
+       	    </span>
+	</header>
 
         <section class="post-content">
             {{content}}
@@ -53,11 +42,9 @@ archive: false
                 	<header> <a href="{{ site.baseurl }}"> <img class="profile" src="/assets/images/me.jpg" alt="Author's profile picture"></a></header>
                 	<article>
                 		<!-- Author Name -->
-                    	<h4> {{ site.author }} </h4>
+                    	<h4>{{ site.author.fullname }}</h4>
                     	<!-- Author Bio -->
-                    	<p> 
-                    		Here goes the author description. You might want to place some links too in here
-                    	</p>
+                    	<p>{{ site.author.bio }}</p>
                     </article>
                 </section>                
             {% endif %}

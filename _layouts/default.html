@@ -13,11 +13,11 @@
 
     <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
-    <!-- link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" / -->
     <!-- This is for syntax highlight -->
     <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css">
     <!-- Customisation  -->
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+    <link rel="alternate" type="application/atom+xml" title="Blog-notes au format Atom 1.0" href="{% page_feed_url %}" />
 
 
 {% if page.excerpt %}
@@ -26,40 +26,32 @@
     <meta name="twitter:creator" content="@{{ site.twitter }}" />
     <meta name="twitter:title" content="{{ page.title }}">
     <meta name="twitter:url" content="//{{ site.url }}{{ page.url }}">
-    <meta name="twitter:description" content="{{ page.excerpt | strip_html | truncate: 200 }}">
+    <meta name="twitter:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}">
 {% endif %}
 </head>
 <body class="home-template">
 
-    
+<header class="site-head" {% if page.cover %} style="background-image: url({{ page.cover }})"{% endif %}>
+    <div class="vertical">
+        <div class="site-head-content" class="inner">
+            {% if page.logo %}
+            <a class="blog-logo" href="{{ site.baseurl }}"><img src="{{ page.logo }}" alt="Blog Logo" /></a>
+            {% endif %}
+            <h1 class="blog-title">{{ site.name }}</h1>
+            <h2 class="blog-description">{{ site.description }}</h2>
+        </div>
+    </div>
+</header>
     {{ content }}
-
     <footer class="site-footer">
-        <a class="subscribe icon-feed" href="{{ site.baseurl }}rss.xml"><span class="tooltip">Subscribe!</span></a>
+        <a class="subscribe icon-feed" href="{% page_feed_url %}"><span class="tooltip">Subscribe!</span></a>
         <div class="inner">
              <section class="copyright">All content copyright <a href="{{ site.baseurl }}">{{ site.name }}</a> &copy; {{date format="YYYY"}} &bull; All rights reserved.</section>
              <section class="poweredby">Made with Jekyll</section>
         </div>
     </footer>
-
-    
-    <script type="text/javascript" src="/assets/js/jquery-1.10.2.min.js"></script>
+    <!-- script type="text/javascript" src="/assets/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="/assets/js/index.js"></script>
-
-    <!-- Google Analytics Tracking code -->
-    <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    </script>   
+    <script type="text/javascript" src="/assets/js/index.js"></script -->
 </body>
 </html>

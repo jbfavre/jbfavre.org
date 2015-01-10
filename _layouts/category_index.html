@@ -1,31 +1,32 @@
 ---
 layout: default
 ---
-<section id="category-list">
+
+<main id="category-list"  class="content" role="main">
+    <header class="post">
+        <h2 class="post-title">{{ page.title }}</h2>
+    </header>
     {% for post in site.categories[page.category] %}
       <article class="post">
-        <header class="post-title">
-          <aside class="post-meta">
-            <span class="post-date">{{ post.date | date_to_string }}</span>
-            <ul>
-            {% if post.category != nil %}
-              <li class="post-category">
-                &nbsp;in &raquo; {{ post.categories | category_links }} &laquo;
-              </li>
-            {% endif %}
+        <header class="post-header">
+            <span class="post-meta"><time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date_to_string }}</time> {{!tags prefix="on "}}</span>
+                {% if post.categories %}
+                    dans
+                    {% for category in post.categories %}
+                        <a href="/categories/{{category}}/">{{ post.categories | category_links }}</a>
+                    {% endfor %}
+                {% endif %}
             {% if post.tags.size != 0 %}
-              <li class="post-tags">tags: &nbsp;( {{ post.tags | join: ', ' }} )</li>
+                , tags:&nbsp;{{ post.tags | join: ', ' }}
             {% endif %}
-            </ul>
-          </aside>
-          <h2 class="post-title"><a class="post-title" href="{{ post.url }}">{{ post.title }}</a></h2>
+            <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
         </header>
-        <section class="post-content">
-        {{ post.excerpt }}
+        <section class="post-excerpt">
+        {{ post.excerpt | markdownify }}
         </section>
       </article>
     {% endfor %}
-</section>
+</main>
 
 {% if paginator.next_page != nil OR paginator.previous_page != nil %}
 <nav id="paginator">

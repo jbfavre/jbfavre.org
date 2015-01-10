@@ -1,9 +1,8 @@
 ---
 ---
 <style>
-
-
 .provider {
+    float:right;
     font-size: 13px;
     font-weight: 700;
 }
@@ -51,11 +50,6 @@
     clear: both;
 }
 
-.provider {
-    display: block;
-    margin-right: -80px;
-}
-
 span.provider-favicon {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0NTRGMzZFNTNBOTQxMUUzOUU0OUExMEE2NkE3QUNDMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo0NTRGMzZFNjNBOTQxMUUzOUU0OUExMEE2NkE3QUNDMyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjQ1NEYzNkUzM0E5NDExRTM5RTQ5QTEwQTY2QTdBQ0MzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjQ1NEYzNkU0M0E5NDExRTM5RTQ5QTEwQTY2QTdBQ0MzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+pF18XQAAAUtJREFUeNqkkz1LA0EQhjdDQG0CaqOkFiEWNhG10cIrbSzTpAp4lY1cZeEPOOwDHljebxAiYilaiSDYapR0YiUW4jvwngzjLRYOPOzt3Hzszs40gpM8z9exDEAC2lSPwQgUWZZdW/uGcWxhGYIeVRPwAL7AJpihvgQpAr3/BKDzBeiCO3AAgysTXLPvmMS3utcgQsWQzs9g2zlrkhV30y59gvDO1bFP4fzmjNfAQvgtPfUVFqySlxrDG3Af6mXQZLVttoJH38JyDk7AfCRAIuapVPpwXOX3E5/vCCxGArTFKabBJYLsY/0AS6iJFnEKbIBHH0GYxcosK6z1mFMFgnyygfrOdizssJgkbu9PMJKqaBE5w3XsK3Xc/0J4tDISQNt31+wPzXepvk1uUi0YOyzUDJgW8hjsmVZO/xqmSnRoXsFydJj+M87fAgwAhBVmF6w0nW0AAAAASUVORK5CYII=);
     width: 16px;
@@ -80,10 +74,19 @@ span.provider-favicon {
     display: inline-block;
 }
 
-.provider .category {
-    color: #7f7f7f;
+@media (max-width:800px) {
+    .provider {
+	float: left;
+	display: inline-block;
+	clear:both;
+    }
+    .providername {
+	display:none;
+    }
+    .title {
+	clear:both;
+    }
 }
-
 @media (max-width:400px) {
     .provider .category {
         display: inline-block;
@@ -218,17 +221,18 @@ box-sizing: border-box;
 <article class="hdr">
   <div class="bd" style="border-left-color: rgb(194, 228, 122);">
     <header class="card">
+    <aside class="provider card">
+      <img class="provider-favicon" src="//medias.jbfavre.org/moi.png" height="16" width="16">
+      <span class="provider-name">
+        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date_to_string }}</time>
+	<span class='providername'>par <a href='/cv'>Jean Baptiste Favre</a></span>
+      </span>
+      <span class="category">{{post.categories | array_to_sentence_string | prepend: "in " }}</span>
+    </aside>
       <h1 class="title">
         <a href="//{{ site.url }}{{site.baseurl }}{{ post.url }}" title="{{ site.name }}: {{ post.title }}">{{ post.title }}</a>
       </h1>
     </header>
-    <aside class="provider card">
-      <img class="provider-favicon" src="http://medias.jbfavre.org/moi.png" height="16" width="16">
-      <span class="provider-name">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date_to_string }}</time>
-      </span>
-      <span class="category">{{post.categories | array_to_sentence_string | prepend: "in " }}</span>
-    </aside>
     <section class="card">
       <p class="description">{{ post.excerpt | remove: "<p>" | remove: "</p>"}}</p>
       <nav><p><a class="action" href="//{{ site.url }}{{site.baseurl }}{{ post.url }}" title="{{ site.name }}: {{ post.title }}">Read more &gt;</a></p></nav>
