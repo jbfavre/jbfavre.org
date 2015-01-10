@@ -64,6 +64,6 @@ On pourrait en ajouter d'autres, potentiellement plus marrants:
 
 Bon, faudrait aussi changer la composition de la commission qui décide de l'assiette de la rémunération pour copie privée car avec 50% des sièges, donc des voix, c'est tout de suite plus facile pour les ayant-droit.
 
-À défaut de quoi, ben l'État récupère le fric pour ~sa gueule~^W pour payer les déficits.
+À défaut de quoi, ben l'État récupère le fric pour <strike>sa gueule</strike>^W pour payer les déficits.
 
 Ah oui, j'allais oublier, ce serait bien aussi de ramener la durée du droit d'auteur à un niveau un peu plus... raisonnable, parce que 70 après la mort de l'auteur, comment vous dire...

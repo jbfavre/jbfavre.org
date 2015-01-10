@@ -43,6 +43,7 @@ Bref, pas très envie de me lancer.
 Restent SabreDAV et Baïkal, le second étant une surcouche du premier.
 
 Baïkal sera finalement écarté également, essentiellement pour des raisons pratiques, liées à mon environnement et au manque de temps pour adapter le tout:
+
 - Il compte plusieurs points d'entrée (un par défaut, un pour calDAV et un pour CardDAV), chacun embarquant les même options de configuration. Autant de modifications à gérer et à ne pas oublier sous peine de comportement "étranges"
 - La structure du code rend délicate la séparation code/ressources. De fait, il est compliqué d'avoir les images et CSS dans l'arborescence web tout en maintenant le code PHP "à l'abri" en dehors de celle-ci.
 
