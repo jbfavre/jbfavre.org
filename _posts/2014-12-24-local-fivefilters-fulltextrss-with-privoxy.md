@@ -8,7 +8,7 @@ tags: [hack,js]
 [FulltextRSS from fivefilters.org](http://fivefilters.org/content-only/) allows
 you to extract content only from a page. When it fails at detecting content zone,
 a rules definition file called siteconfig can help, providing [XPATH
-expressions](http://help.fivefilters.org/customer/portal/articles/223153-site-patterns).
+expressions](http://help.fivefilters.org/customer/portal/articles/223153-site-patterns).  
 To build it, you can use an online tool available at
 [siteconfig.fivefilters.org](http://siteconfig.fivefilters.org).
 
