@@ -1,21 +1,23 @@
 name: Mon blog-notes à moi que j'ai
 description: Le meilleur du pire de mes flux RSS (et de Twitter)
-meta_description: "Your New Jekyll Site, Blogging about stuffs"
+meta_description: "Personal blog of a devops sysadmin"
 logo: images/me.jpg
 baseurl: "/"
 domain: blog.jbfav.re
 
 timezone: Europe/Paris
 
-markdown: redcarpet
 highlighter: false
-logo: false
 paginate: 15
+paginate_path: "/page:num"
+paginate_per_category: true
 
 
 # Details for the RSS feed generator
 url:            'blog.jbfav.re'
-author:         'Jean-Baptiste Favre'
+author:
+  fullname: 'Jean-Baptiste Favre'
+  bio: 'System architect at BlaBlaCar'
 
 github: jbfavre
 twitter: jbfavre
