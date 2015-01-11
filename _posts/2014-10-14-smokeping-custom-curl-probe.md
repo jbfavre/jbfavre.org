@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Smokeping custom Curl probe"
+date: 2014-10-14 13:00:00 +0200
 category: monitoring
 tags: [smokeping,perl]
 ---

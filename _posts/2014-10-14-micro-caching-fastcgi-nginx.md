@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Micro-caching & Nginx"
+date: 2014-10-14 15:00:00 +0200
 category: sysadmin
 tags: [nginx,fastcgi,performances]
 ---
