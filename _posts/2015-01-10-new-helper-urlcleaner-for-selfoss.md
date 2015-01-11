@@ -2,7 +2,7 @@
 layout: post
 title: "New helper UrlCleaner for Selfoss"
 category: dev
-tags: [php]
+tags: [php,selfoss,helper,spout]
 meta:
   keywords: [selfoss,php,helper,urlcleaner]
 ---
