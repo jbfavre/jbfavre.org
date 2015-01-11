@@ -59,7 +59,7 @@ module Jekyll
       # Link to self
       link_self = feed.links.new
       link_self.rel = 'self'
-      link_self.href = self.url
+      link_self.href = "#{URI.escape(@site.config['url'] + self.url)}"
 
       # Alternate link
       link_alt = feed.links.new
@@ -68,24 +68,33 @@ module Jekyll
       # (Site) Author info
       if @site.config['author']
         author = feed.authors.new
-        author.name = @site.config['author']
-        author.email = @site.config['email'] if @site.config['email']
+        author.name = @site.config['author']['name']
+        author.email = @site.config['author']['email'] if @site.config['author']['email']
       end
 
       # Insert post entires
       @posts.each do |post|
         entry = feed.entries.new
-        entry.id = post.id
+        entry.id = "#{@site.config['url'] + post.id}/"
         entry.title = post.data['title']
         entry.updated = post.date
-	entry.summary = Nokogiri::HTML(post.content).text[0..300]
+	entry.summary = Nokogiri::HTML(post.content).text[0..200]
 
         link_alt = entry.links.new
-        link_alt.href = @site.config['url'] + URI.escape(post.url)
+        link_alt.href = "#{@site.config['url'] + URI.escape(post.url)}/"
 
         post.categories.each do |c|
           category = entry.categories.new
+	  category.scheme = "#{@site.config['url'] + '/categories/'}"
           category.term = c
+          category.label = c
+        end
+
+        post.tags.each do |c|
+          tag = entry.categories.new
+          tag.scheme = "#{@site.config['url'] + '/tags/'}"
+          tag.term = c
+          tag.label = c
         end
 
         post.transform
@@ -102,7 +111,7 @@ module Jekyll
     priority :lowest
 
     def generate(site)
-      feed_dir = site.config['feed_dir'] || 'feed'
+      feed_dir = site.config['feed_dir'] || 'categories'
 
       # Generate our feed for the whole site.
       site.static_files << FeedFile.new(
@@ -129,7 +138,7 @@ module Jekyll
     def render(context)
       site = context.registers[:site]
       page_url = context.environments.first["page"]["url"]
-      feed_dir = site.config['feed_dir'] || 'feed'
+      feed_dir = site.config['feed_dir'] || 'categories'
 
       # Search for the page's category within the url.
       category = nil
