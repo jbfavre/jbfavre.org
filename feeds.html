@@ -1,0 +1,31 @@
+---
+layout: default
+title: Feeds list
+---
+<main class="content" role="main">
+  <article class="post">
+    <header class="post-header">
+      <h2 class="post-title">Category feed list</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <ul>
+      {% for category in site.categories %}
+        <li><a href='/category/{{ category | first }}/atom.xml' rel='feed'>Feed for {{ category | first }}</a>
+      {% endfor %}
+      </ul>
+    </section>
+  </article>
+  <article class="post">
+    <header class="post-header">
+      <h2 class="post-title">Tag feed list</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <ul>
+      {% for tag in site.tags %}
+        <li><a href='/tag/{{ tag | first }}/atom.xml' rel='feed'>Feed for {{ tag | first }}</a>
+      {% endfor %}
+      </ul>
+    </section>
+  </article>
+
+</main>

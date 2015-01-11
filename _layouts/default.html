@@ -21,7 +21,7 @@
     - /_assets/css/screen.css
     - /_assets/css/syntax.css
     - /_assets/css/main.css{% endcss_asset_tag %}
-    <link rel="alternate" type="application/atom+xml" title="Blog-notes au format Atom 1.0" href="{% page_feed_url %}" />
+    <link rel="alternate" type="application/atom+xml" title="Feed for category: {{ category | first }}" href="{% page_feed_url %}" />
 
 {% if page.excerpt %}    <!-- Twitter cards -->
     <meta name="twitter:card" content="summary" />

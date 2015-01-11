@@ -41,8 +41,6 @@
 }
 
 /* Apply these base styles to all icons */
-.icon-category:before,
-.icon-tag:before,
 .icon-ghost:before, 
 .icon-feed:before, 
 .icon-twitter:before, 
@@ -61,12 +59,6 @@
 
 /* Each icon is created by inserting the corret character into the 
    content of the :before pseudo element. Like a boss. */
-.icon-category:before {
-    content: "";
-}
-.icon-tag:before {
-    content: "\f02b";
-}
 .icon-ghost:before {
     content: "\e000";
 }

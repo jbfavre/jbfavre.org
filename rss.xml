@@ -7,14 +7,14 @@
     <description>{{ site.description | strip_html }}</description>
     <link>//{{ site.url }}</link>
     <atom:link href="//{{ site.url }}/feed.xml" rel="alternate" type="application/rss+xml" />
-    {% for post in site.posts limit:10 %}
+    {% for post in site.posts limit:15 %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.excerpt | markdownify | xml_escape }}</description>
-	<content type="html"><![CDATA[{{ post.content | expand_urls: site.url | markdownify | cdata_escape }}]]></content>
         <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
         <link>{{ site.url }}/{{ post.url }}</link>
         <guid isPermaLink="true">{{ site.url }}/{{ post.url }}</guid>
+        <description>{{ post.excerpt | markdownify | xml_escape }}</description>
+	<content type="html"><![CDATA[{{ post.content | expand_urls: site.url | markdownify | cdata_escape }}]]></content>
       </item>
     {% endfor %}
   </channel>
