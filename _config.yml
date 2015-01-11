@@ -1,36 +1,38 @@
-name: Mon blog-notes à moi que j'ai
-description: Le meilleur du pire de mes flux RSS (et de Twitter)
-meta_description: "Personal blog of a devops sysadmin"
+name: "Mon blog-notes à moi que j'ai"
+description: "Blog personnel d'un sysadmin à tendance hacker"
+meta_description: "Blog personnel de Jean Baptiste Favre."
 logo: images/me.jpg
+url: http://blog.jbfavre.org
 baseurl: "/"
-domain: blog.jbfav.re
 
 timezone: Europe/Paris
 
 highlighter: false
 paginate: 15
-paginate_path: "/page:num"
+paginate_path: /page:num
 paginate_per_category: true
 
+tag_page_layout: tag_index
+tag_page_dir: tags
+tag_feed_layout: tag_feed
+tag_feed_dir: tags
+tag_permalink_style: pretty
 
-# Details for the RSS feed generator
-url:            'blog.jbfav.re'
+
 author:
-  fullname: 'Jean-Baptiste Favre'
-  bio: 'System architect at BlaBlaCar'
+  name: Jean Baptiste Favre
+  bio: Sysadmin, tendance hacker. Je tripatouille tout ce que je touche. Actuellement Architecte système chez BlaBlaCar
+  email: webmaster@jbfavre.org
 
 github: jbfavre
 twitter: jbfavre
 
-#owner:
-#  name: Jean Baptiste Favre
-#  url: /cv
-#  position: Network &amp; System Architect
-#  company: BlaBlaCar
-#  email: webmaster@jbfavre.org
-#  github: jbfavre
-#  twitter: jbfavre
-#  gnusocial: status.jbfavre.org
+owner:
+  name: Jean Baptiste Favre
+  url: /cv
+  email: webmaster@jbfavre.org
+  github: jbfavre
+  twitter: jbfavre
+  gnusocial: status.jbfavre.org
 
 permalink: /:year/:month/:day/:title
-#excerpt_separator: "<!-- -->"
