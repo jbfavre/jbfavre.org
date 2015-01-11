@@ -8,15 +8,18 @@ baseurl: "/"
 timezone: Europe/Paris
 
 highlighter: false
+
 paginate: 15
 paginate_path: /page:num
 paginate_per_category: true
 
-tag_page_layout: tag_index
-tag_page_dir: tags
-tag_feed_layout: tag_feed
-tag_feed_dir: tags
-tag_permalink_style: pretty
+tag_page_dir: tag
+tag_feed_dir: tag
+category_page_dir: category
+category_feed_dir: category
+#tag_page_layout: tag_index
+#tag_feed_layout: tag_feed
+#tag_permalink_style: pretty
 
 
 author:
