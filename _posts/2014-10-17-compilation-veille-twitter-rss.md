@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Compilation veille Twitter & RSS #15"
+title: "Compilation veille Twitter & RSS"
+date: "2014-10-17 18:00:00 +0200"
 category: veille
 ---
 

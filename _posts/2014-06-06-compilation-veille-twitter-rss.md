@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Compilation veille Twitter & RSS #2"
+title: "Compilation veille Twitter & RSS"
 category: veille
 ---
 

@@ -63,7 +63,7 @@ Les fichiers de reconstitution de l'œuvre sont disponibles dans un dépôt GitH
 
 Le travail de numérisation vous donne une collection de photos prises par deux appareils photos, nommés right et left.  
 Vous obtenez donc les pages paires dans le dossier right et les pages impaires dans le dossier left.  
-Les photos sont de plus nommées automatiquement par les appareils suivant le format ```IMG_<num>.JPG```. Naturellement, <num> ne correspond pas au numéro de page.
+Les photos sont de plus nommées automatiquement par les appareils suivant le format `IMG_<num>.JPG`. Naturellement, `<num>` ne correspond pas au numéro de page.
 
 Il faut donc commencer par réconcilier tout cela. Les pages de couverture sont renommées à la main, elle sont peu nombreuses.  
 Il reste les pages paires

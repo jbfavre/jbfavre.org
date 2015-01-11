@@ -3,6 +3,8 @@ layout: post
 title: "New helper UrlCleaner for Selfoss"
 category: dev
 tags: [php]
+meta:
+  keywords: [selfoss,php,helper,urlcleaner]
 ---
 
 SelfOSS is an RSS reader written in PHP. I implemented a `UrlCleaner` for it. The code gets real URL of each article and also tries to remove known trackers included as URL parameters or fragment.
