@@ -361,19 +361,19 @@ margin on the iframe, cause it breaks stuff. */
     position: relative;
     display: table;
     width: 100%;
-    height: 50%;
     margin-bottom: 5rem;
     text-align: center;
     color: #fff;
-    background-color: red;
-    background-size: cover;
 }
 
 /* the image for the site header*/
-.site-head{
+.site-cover{
     background-image: url('/assets/images/background-header.jpg');
     background-repeat: no-repeat;
     background-position: 50%;
+    height: 50%;
+    background-color: red;
+    background-size: cover;
 }
 
 .blog-logo {
@@ -848,11 +848,11 @@ margin on the iframe, cause it breaks stuff. */
 
 @media only screen and (max-width: 500px) {
     
-    .site-head{
-        padding: 0;
+    .site-cover{
 	background:none;
+        padding: 0;
     }
-    
+
     .up{
         display: none;
     }
