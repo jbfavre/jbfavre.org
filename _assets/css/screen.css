@@ -413,7 +413,7 @@ margin on the iframe, cause it breaks stuff. */
     width:80%;
     max-width: 700px;
     margin: 4rem auto;
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
     border-bottom: #EBF2F6 1px solid;
     word-break: break-word;
     hyphens: auto;
@@ -453,11 +453,32 @@ margin on the iframe, cause it breaks stuff. */
 }
 
 .post-meta {
-    display: inline-block;
     margin: 0 0 5px 0;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.5rem;
     color: #9EABB3;
+    position: relative;
+}
+.post-template .post-meta {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #EBF2F6;
+}
+.post-template .post-meta:after {
+    display: block;
+    content: "";
+    width: 7px;
+    height: 7px;
+    border: #E7EEF2 1px solid;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    margin-left: -5px;
+    background: #fff;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    box-shadow: #fff 0 0 0 5px;
 }
 
 .post-meta a {
@@ -467,6 +488,51 @@ margin on the iframe, cause it breaks stuff. */
 
 .post-meta a:hover {
     text-decoration: underline;
+}
+
+.post-meta h4 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.post-meta .author p {
+    margin: 1rem 0;
+    font-size: 1.4rem;
+    line-height: 1.6em;
+}
+
+/* Create some space to the right for the share links */
+.post-meta .author {
+    margin-right: 180px;
+    text-align: left;
+    color: #3A4145;
+    font-family: "Noto Serif',serif;
+    font-size: 1.9rem;
+}
+
+/* Drop the share links in the space to the right.
+   Doing it like this means it's easier for the author bio
+   to be flexible at smaller screen sizes while the share
+   links remain at a fixed width the whole time */
+.post-meta .share {
+    position: absolute;
+    top: 8.5rem;
+    right: 0;
+    width: 160px;
+    margin-bottom:1em;
+    color: #3A4145;
+}
+
+.post-meta .share a {
+    font-size: 1.8rem;
+    display: inline-block;
+    margin: 1.4rem 1.6rem 1.6rem 0;
+    color: #BBC7CC;
+    text-decoration: none;
+}
+
+.post-meta .share a:hover {
+    color: #50585D;
 }
 
 .user-meta {
@@ -532,6 +598,9 @@ margin on the iframe, cause it breaks stuff. */
 .post-template .post-header {
     text-align: center;
 }
+.post-template .post-meta{
+    text-align: center;
+}
 
 .post-template .blog-title {
     display: inline-block;
@@ -553,46 +622,6 @@ margin on the iframe, cause it breaks stuff. */
     padding: 4rem 0 0 0;
     border-top: #EBF2F6 1px solid;
 }
-
-.post-footer h4 {
-    font-size: 1.8rem;
-    margin: 0;
-}
-
-.post-footer p {
-    margin: 1rem 0;
-    font-size: 1.4rem;
-    line-height: 1.6em;
-}
-
-/* Create some space to the right for the share links */
-.post-footer .author {
-    margin-right: 180px;
-}
-
-/* Drop the share links in the space to the right.
-   Doing it like this means it's easier for the author bio
-   to be flexible at smaller screen sizes while the share
-   links remain at a fixed width the whole time */
-.post-footer .share {
-    position: absolute;
-    top: 4rem;
-    right: 0;
-    width: 140px;
-}
-
-.post-footer .share a {
-    font-size: 1.8rem;
-    display: inline-block;
-    margin: 1.4rem 1.6rem 1.6rem 0;
-    color: #BBC7CC;
-    text-decoration: none;
-}
-
-.post-footer .share a:hover {
-    color: #50585D;
-}
-
 
 /* ==========================================================================
    6. Third Party Elements - Embeds from other services
@@ -940,18 +969,20 @@ margin on the iframe, cause it breaks stuff. */
         text-align: center;
     }
 
-    .post-footer .author {
+    .post-meta .author {
         margin: 0 0 2rem 0;
         padding: 0 0 1.6rem 0;
         border-bottom: #EBF2F6 1px dashed;
+        text-align: center;
     }
 
-    .post-footer .share {
+    .post-meta .share {
         position: static;
         width: auto;
+        text-align: center;
     }
 
-    .post-footer .share a {
+    .post-meta .share a {
         margin: 1.4rem 0.8rem 0 0.8rem;
     }
 
