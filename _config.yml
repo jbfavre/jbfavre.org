@@ -41,4 +41,4 @@ owner:
 
 permalink: /:year/:month/:day/:title
 
-exclude: ["CNAME", "Rakefile", "MIT-LICENSE", "README.md", "TODO.taskpaper", "Gemfile", ".git", ".gitignore"]
+exclude: ["LICENSE.txt", "README.md", "Gemfile", "Gemfile.lock", ".git", ".gitignore", ".bundle", "vendors"]
