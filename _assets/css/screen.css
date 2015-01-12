@@ -530,7 +530,6 @@ margin on the iframe, cause it breaks stuff. */
 
 /* Insert some mad padding up in the header for better spacing */
 .post-template .post-header {
-    padding: 60px 0;
     text-align: center;
 }
 
@@ -795,8 +794,17 @@ margin on the iframe, cause it breaks stuff. */
         -moz-box-sizing: border-box;
         box-sizing: border-box; 
         height: auto;
-        min-height: 240px;
+    }
+
+    .site-cover{
+        background-image: url('/assets/images/background-header.jpg');
+        background-repeat: no-repeat;
+        background-position: 50%;
+        height: auto;
         padding: 15% 0;
+        min-height: 240px;
+        background-color: red;
+        background-size: cover;
     }
 
     .blog-title {
@@ -847,7 +855,10 @@ margin on the iframe, cause it breaks stuff. */
 
 
 @media only screen and (max-width: 500px) {
-    
+    .site-head{
+        padding:0;
+        margin-bottom:0;
+    }
     .site-cover{
 	background:none;
         padding: 0;
