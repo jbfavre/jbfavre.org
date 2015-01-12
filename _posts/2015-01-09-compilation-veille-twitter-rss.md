@@ -16,16 +16,28 @@ Bonne lecture
 
 ### Architecture
 
+[API Best Practices: Hypermedia (Part 1)](http://java.dzone.com/articles/api-best-practices-hypermedia)
+: One of the challenges to implementing and correctly using hypermedia in your REST API is first understanding what hypermedia is, and what it means to use hypermedia as the engine of application state (HATEOAS).
+
+[Collecting Docker Container Data with Fluentd](http://java.dzone.com/articles/collecting-docker-container)
+: Today, we’re honored to bring you a guest post by Treasure Data’s Kiyoto Tamura.  Kiyoto is the developer evangelist at Treasure Data and one of the maintainers of Fluentd, the open source data collector to simplify and scale log management. A math major and former quantitative analyst, he loves collecting and analyzing data. Today, Kiyoto will walk you through the creation of two Fluentd plugins that export per-container systems metrics from Docker to Librato.  As a Fluentd maintainer, he makes it look easy; integrating Docker with Librato in under a hundred lines of code.
+
 [The Ultimate Guide: 5 Methods for Debugging Production Servers at Scale](http://highscalability.com/blog/2015/1/7/the-ultimate-guide-5-methods-for-debugging-production-server.html)
 : All sorts of wild things happen when your code leaves the safe and warm development environment. Unlike the comfort of the debugger in your favorite IDE, when errors happen on a live server - you better come prepared. No more breakpoints, step over, or step into, and you can forget about adding that quick line of code to help you understand what just happened. In production, bad things happen first and then you have to figure out what exactly went wrong. To be able to debug in this kind of environment we first need to switch our debugging mindset to plan ahead. If you’re not prepared with good practices in advance, roaming around aimlessly through the logs wouldn’t be too effective.
 
 [Architecting Websites For The HTTP/2 Era](https://ma.ttias.be/architecting-websites-http2-era/)
 : The arrival of HTTP/2 will require a bit of re-thinking how we handle websites (and webservers), so perhaps it's time to reflect on what those changes can bring. This post is based entirely on theory (the HTTP2 spec), as I can't test HTTP/2 yet. The HTTP/2 Spec is available for reading on Github.
 
+[HTTP/2: A Fast, Secure Bedrock for the Future of SEO](http://zoompf.com/blog/2015/01/http2-fast-secure-bedrock-future-seo)
+: In prior articles we've written extensively about website performance and securing your website, both factors Google has publicly announced as search ranking factors. These articles provide extensive tips using existing tools and technologies to improve your site performance and security (tips we highly recommend you follow). But did you know Google also developed and is championing a new web transport protocol called SPDY that addresses many of the inherent performance and security flaws in the web today?
+
 [Caching Over Mybatis – Summary of Approaches](http://java.dzone.com/articles/caching-over-mybatis-summary)
 : This article presents a summary of the four Proof of Concepts described in the article 4 Hands-On Approaches to Improve Your Data Access Layer Implementation  and contains a retrospective of the four implementations, with a comparison table of their key features.
 
 ### Network
+
+[RFC 7426: SDN Layers and Architecture Terminology](http://www.bortzmeyer.org/7426.html)
+: S'il y a un buzzword populaire en ce moment, dans les technologies de réseau, c'est bien SDN. Ce sigle désigne une approche de contrôle centralisé d'un réseau, par le biais d'ordres envoyés depuis la machine d'administration, vers tous les éléments actifs du réseau (les routeurs, par exemple). Comme tous les buzzwords, son utilisation massive pour désigner tout et n'importe quoi entraîne pas mal de confusion, et ce RFC de l'IRTF essaie de clarifier un peu en précisant la terminologie du SDN (Software-Defined Networking), et en explorant les protocoles actuels qui participent au système SDN.
 
 [RFC 7416: A Security Threat Analysis for Routing Protocol for Low-power and lossy networks (RPL)](http://www.bortzmeyer.org/7416.html)
 : Le protocole de routage RPL (Routing Protocol for Low power and lossy networks) est conçu pour des objets connectés, nombreux, mais pas gérés, et qui doivent s'organiser tout seuls pour trouver un chemin dans le réseau. Ces objets peu intelligents soulèvent souvent des problèmes de sécurité spécifiques : ils ne sont pas gérés par un administrateur système compétent, ils ont des capacités de calcul limitées, ce qui réduit le recours à la cryptographie, ils ont une interface utilisateur réduite au minimum, ce qui fait qu'entrer une clé WPA est très pénible, etc. Ce nouveau RFC documente les problèmes de sécurité de RPL.
@@ -56,6 +68,11 @@ Bonne lecture
 : Il y a trois jours, alors que je prenais un café dans l’aéroport de Hambourg au retour du 31e congrès du Chaos Computer Club (sur lequel je reviendrai, more to come comme on dit) et que je consultais ma messagerie, j’ai pris connaissance d’un commentaire succinct et assez péremptoire à mon billet « Facebook “caché” dans Tor : pourquoi c’est une très bonne nouvelle ».
 
 ### Databases
+
+### Elasticsearch
+
+[From Elephant to ELK: How We Migrated Our Analytics System to Elasticsearch](https://www.digitalgov.gov/2015/01/07/elk/?utm_source=rss&utm_medium=rss&utm_campaign=elk)
+: DigitalGov Search is essentially one giant software-as-a-service (SaaS), with 1,500 government websites as its customers. Each site, in turn, is a resource for the public to use. To help us understand how people use the search box and how we can make it better, we collect quite a bit of data. Some of that data makes its way into data products, automatically improving future searchers’ experiences. Some of it helps us keep track of the health of the system, alerting us to issues and anomalies that might impact searchers. And all of this data helps us answer ad hoc questions, support hypotheses, and back up intuitions we have about how the service should evolve. It even populates an engaging real-time dashboard we have running on a monitor at GSA, reminding us of our commitment to improving each individual’s interaction with government.
 
 #### MySQL
 
@@ -123,6 +140,9 @@ Version-less optimistic locking is one lesser-known Hibernate feature. In this p
 
 #### Hadoop
 
+[Apache Samza: LinkedIn’s Stream Processing engine](http://engineering.linkedin.com/samza/apache-samza-linkedin%E2%80%99s-stream-processing-engine)
+: LinkedIn began processing “big data” on Apache Hadoop six years ago. As time passed, we recognized that some of our use cases couldn’t be implemented in Hadoop due to the large turn-around time that batch processing needed. We wanted our results to be calculated incrementally and available immediately at any time.
+
 [New in CDH 5.3: Transparent Encryption in HDFS](http://blog.cloudera.com/blog/2015/01/new-in-cdh-5-3-transparent-encryption-in-hdfs/)
 : Apache Hadoop 2.6 adds support for transparent encryption to HDFS. Once configured, data read from and written to specified HDFS directories will be transparently encrypted and decrypted, without requiring any changes to user application code. This encryption is also end-to-end, meaning that data can only be encrypted and decrypted by the client. HDFS itself never handles unencrypted data or data encryption keys. All these characteristics improve security, and HDFS encryption can be an important part of an organization-wide data protection story.
 
@@ -132,6 +152,12 @@ Version-less optimistic locking is one lesser-known Hibernate feature. In this p
 : With the big 3 Hadoop vendors – Cloudera, Hortonworks and MapR - each providing their own Hadoop sandbox virtual machines (VMs), trying out Hadoop today has become extremely easy. For a developer, it is extremely useful to download and get started with one of these VMs and try out Hadoop to practice data science right away.
 
 #### Analytics
+
+[New Advanced Analytics and Data Wrangling Tutorials on Cloudera Live](http://blog.cloudera.com/blog/2015/01/new-advanced-analytics-and-data-wrangling-tutorials-on-cloudera-live/)
+: A new Spark tutorial and Trifacta deployment option make Cloudera Live even more useful for getting started with Apache Hadoop.A new Spark tutorial and Trifacta deployment option make Cloudera Live even more useful for getting started with Apache Hadoop.A new Spark tutorial and Trifacta deployment option make Cloudera Live even more useful for getting started with Apache Hadoop.
+
+[Preparing Data in DSS (original blog post by Affini-Tech)](http://www.dataiku.com//blog/2015/01/08/preparing_data_in_DSS.html)
+: In the following article, and as promised in their last blog post "Why You Should Use a Data Science Tool", Affini-Tech explores and illustrates the benefits of using Dataiku's Data Science Studio (DSS) software for the very first step of any data oriented workflow: data preparation.
 
 [Mapping the World](http://nerds.airbnb.com/mapping-world/)
 : People are always surprised when I tell them about Zack Walker, Airbnb’s in-house cartographer, who works on mapping the world.  
@@ -176,6 +202,7 @@ They say, “the world is already mapped! There’s Google Maps, Foursquare, Yel
 : It’s common for many websites to build a signaling mechanism that, without user action, sends analytics or diagnostics information back to a server for further analysis. I’ve created one at least a half a dozen times to capture all sorts of information: JavaScript errors, browser and device capabilities, client side click paths, the list goes on and on. In fact, the list is actually getting longer with the W3C‘s Web Performance Working Group cranking out lots of great Real User Metrics (RUM) specifications for in-browser performance diagnostics like Navigation Timing, Resource Timing, User Timing and the forthcoming Navigation Error Logging and Frame Timing.
 
 ### Vie privée
+
 [De la surveillance de masse à la paranoïa généralisée](http://bugbrother.blog.lemonde.fr/2015/01/03/de-la-surveillance-de-masse-a-la-paranoia-generalisee/)
 : Il y aura un avant et un après Snowden. Avant, ceux qui dénonçaient la montée en puissance de la société de surveillance passaient pour de doux paranoïaques (alors que les paranos, c'était pas eux, mais la NSA, ce que Snowden a amplement démontré).
 
@@ -190,5 +217,11 @@ They say, “the world is already mapped! There’s Google Maps, Foursquare, Yel
 
 ### Management
 
+[Geek Health: How-to De-Stress Your Workplace](http://java.dzone.com/articles/geek-health-how-de-stress-your)
+: Here at IOD (I am OnDemand), we spend a hefty amount of time sitting in front of the computer learning about the latest and greatest updates in the world of cloud computing and turning that knowledge into valuable content. It goes without saying that, along with the rest of the world of IT, we spend most of our days sitting for prolonged periods of time in postures that threaten our health and well being. Personally, as a registered yoga instructor (RYT 200), I find it extremely difficult to sit for long periods of time and always make sure to keep my blood pumping, joints happy and stress levels low, one way or another, when working on the computer. In respect to the wealth of knowledge out there regarding the dangers associated with prolonged sitting and the specific ailments linked to countless hours on the computer, I thought I’d share a few tips on how to maintain a healthy lifestyle as a computer geek.
+
 [The secret of great product managers: Balancing the worlds of ‘techie’ and ‘fuzzy’](http://venturebeat.com/2015/01/01/the-secret-of-great-product-managers-balancing-the-worlds-of-techie-and-fuzzy/)
 : Microsoft created the “modern” role of product manager 25 years ago, and the job holds an aura of myth even today. Two-and-a-half decades later, the role of product manager is still misunderstood and ill-defined, and the most important qualities in a product manager are often overlooked. As a result, startups are missing out on valuable opportunities to improve their product, teamwork, and efficiency, not to mention chances of success.
+
+[Dev-Ops for Non-Engineers](http://blog.pagerduty.com/2015/01/dev-ops-non-engineers/)
+: If you’ve used the term “DevOps” as a job title, you may have been making a big mistake. It sounds innocuous: After all, isn’t DevOps something that you do? If you’re a marketer, hiring manager or non-engineer at your company, it might seem like it.
