@@ -4,6 +4,7 @@ title: Home
 ---
 
 <main class="content" role="main">
+
     <nav class="pagination up" role="pagination">
         {% if paginator.previous_page %}
           {% if paginator.previous_page == 1 %}
@@ -48,4 +49,5 @@ title: Home
         <a class="older-posts" href="/page{{ paginator.next_page }}/" title="Next Page">Anciens Posts &raquo;</a>
         {% endif %} 
     </nav>
+
 </main>

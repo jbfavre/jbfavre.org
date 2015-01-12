@@ -6,7 +6,6 @@
   <subtitle>{{ site.description }}</subtitle>
   <link rel='self' type="application/atom+xml" href="{{ site.url }}{{ page.url }}" />
   <link rel='alternate' type="text/html" href="{{ site.url }}{{ page.url | remove: 'atom.xml' }}" />
-  <link type="text/html" href="{{ site.url }}/" />
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>{{ site.url }}/</id>
   <author>
@@ -16,12 +15,12 @@
 {% for post in page.posts %}
   <entry>
     <title>{{ post.title | xml_escape }}</title>
-    <link rel='alternate' href="{{site.url}}{{ post.url }}"/>
+    <link rel='alternate' type="text/html" href="{{site.url}}{{ post.url }}"/>
     <published>{{ post.date | date_to_xmlschema }}</published>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <id>{{site.url}}{{ post.id }}</id>
+    <id>tag:{{site.domain}},{{ post.date | date:"%Y-%m-%d" }}:{{ post.id }}</id>
     <summary>{{ post.excerpt | strip_html | strip_newlines | truncate: 200 }}</summary>
-    <content type="html">{{ post.content | expand_urls : site.url | xml_escape }}</content>
+    <content type="html"><![CDATA[{{ post.content | expand_urls: site.url | markdownify | cdata_escape }}]]></content>
   </entry>
 {% endfor %}
  
