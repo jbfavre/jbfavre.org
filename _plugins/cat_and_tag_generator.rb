@@ -13,7 +13,7 @@ module Jekyll
       end
 
       posts_list= site.posts.sort_by { |p| -p.date.to_f }
-      atom = AtomPage.new(site, site.source, '/', 'root', 'root', posts_list)
+      atom = AtomPage.new(site, site.source, '', 'root', 'root', posts_list)
       site.pages << atom
       #posts = ['root', posts_list]
       #paginate(site, 'root', posts)
