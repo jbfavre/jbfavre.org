@@ -1,9 +1,10 @@
 name: "Mon blog-notes à moi que j'ai"
-description: "Blog personnel d'un sysadmin à tendance hacker"
+description: "Blog personnel d'un sysadmin, tendance hacker"
 meta_description: "Blog personnel de Jean Baptiste Favre."
 logo: images/me.jpg
 url: http://blog.jbfavre.org
-baseurl: "/"
+domain: blog.jbfavre.org
+#baseurl: "/"
 
 timezone: Europe/Paris
 
