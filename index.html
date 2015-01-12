@@ -30,8 +30,8 @@ title: Home
 	<aside class="post-meta">
 		<p>Posté le <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date_to_string }}</time>
                 {% if post.categories %}dans la catégorie&nbsp;{{ post.categories | category_links }}{% endif %}
+		{% if post.tags.size != 0 %}(tags:&nbsp;{{ post.tags | tag_links }}){% endif %}
 		par {% if post.author %}{{ post.author }}{% else %}{{ site.author.name }}{% endif %}</p>
-		{% if post.tags.size != 0 %}<p>tags:&nbsp;{{ post.tags | tag_links }}</p>{% endif %}
 	</aside>
     </article>
     {% endfor %}
