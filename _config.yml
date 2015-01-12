@@ -40,3 +40,5 @@ owner:
   gnusocial: status.jbfavre.org
 
 permalink: /:year/:month/:day/:title
+
+exclude: ["CNAME", "Rakefile", "MIT-LICENSE", "README.md", "TODO.taskpaper", "Gemfile", ".git" ".gitignore"]
