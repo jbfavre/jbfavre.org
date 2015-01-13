@@ -4,7 +4,7 @@ meta_description: "Blog personnel de Jean Baptiste Favre."
 logo: images/me.jpg
 url: http://blog.jbfavre.org
 domain: blog.jbfavre.org
-#baseurl: "/"
+baseurl: "/"
 
 timezone: Europe/Paris
 
@@ -44,3 +44,18 @@ owner:
 permalink: /:year/:month/:day/:title
 
 exclude: ["LICENSE.txt", "README.md", "Gemfile", "Gemfile.lock", ".git", ".gitignore", ".bundle", "vendors"]
+
+defaults:
+  -
+    scope:
+      path: _posts/en
+    values:
+      layout: post
+      lang: en
+  -
+    scope:
+      path: _posts/fr
+    values:
+      layout: post
+      lang: fr
+
