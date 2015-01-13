@@ -620,8 +620,33 @@ margin on the iframe, cause it breaks stuff. */
     position: relative;
     margin: 4rem 0 0 0;
     padding: 4rem 0 0 0;
-    border-top: #EBF2F6 1px solid;
+    border-top: 1px solid #EBF2F6;
 }
+
+.post-footer:before {
+    display: block;
+    content: "";
+    width: 7px;
+    height: 7px;
+    border: #E7EEF2 1px solid;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    margin-left: -5px;
+    background: #fff;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    box-shadow: #fff 0 0 0 5px;
+}
+.post-footer .archive {
+    margin: 0 0 5px 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    color: #9EABB3;
+    position: relative;
+}
+
 
 /* ==========================================================================
    6. Third Party Elements - Embeds from other services

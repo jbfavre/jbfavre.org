@@ -1,58 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html {%if page.post_class != false %}lang="{% if page.lang %}{{ page.lang }}{% else %}fr{% endif %}"{% endif %}>
 <head>   
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="googlebot" content="{% if page.meta.robots %}{{ page.meta.robots | join: ',' }}{% else %}index,follow{% endif %}" />
-    <meta name="robots" content="{% if page.meta.robots %}{{ page.meta.robots | join: ',' }}{% else %}index,follow{% endif %}" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!-- meta name="googlebot" content="{% if page.meta.robots %}{{ page.meta.robots | join: ',' }}{% else %}index,follow{% endif %}" />
+  <meta name="robots" content="{% if page.meta.robots %}{{ page.meta.robots | join: ',' }}{% else %}index,follow{% endif %}" / -->
+  <meta name="googlebot" content="noindex,nofollow" />
+  <meta name="robots" content="noindex,nofollow" />
 
-    <title>{{ site.name }} - {{ site.description }}</title>
-    {% if page.meta.keywords %}<meta name="keywords" content="{{ page.meta.keywords | join: ',' }}" />{%endif %}
-    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ site.meta_description}}{% endif %}" />
-    <meta name="author" content="{{ site.author.name }}" />
-    <meta name="copyright" content="All content copyright {{ site.author.name }} © • All rights reserved." />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
 
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="MobileOptimized" content="320" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    {% css_asset_tag global %}
-    - /_assets/css/normalize.css
-    - /_assets/css/screen.css
-    - /_assets/css/syntax.css
-    - /_assets/css/main.css{% endcss_asset_tag %}
-    <link rel="alternate" type="application/atom+xml" title="Feed for category: {{ category | first }}" href="{% page_feed_url %}" />
-
-{% if page.excerpt %}    <!-- Twitter cards -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:creator" content="@{{ site.twitter }}" />
-    <meta name="twitter:title" content="{{ page.title }}">
-    <meta name="twitter:url" content="//{{ site.url }}{{ page.url }}">
-    <meta name="twitter:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}">{% endif %}
+  <title>{{ site.name }} - {{ site.description }}</title>
+  {% if page.meta.keywords %}<meta name="keywords" content="{{ page.meta.keywords | join: ',' }}" />{%endif %}
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}{% else %}{{ site.meta_description}}{% endif %}" />
+  <meta name="author" content="{{ site.author.name }}" />
+  <meta name="copyright" content="All content copyright {{ site.author.name }}. All rights reserved." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% css_asset_tag global %}
+  - /_assets/css/normalize.css
+  - /_assets/css/screen.css
+  - /_assets/css/syntax.css
+  - /_assets/css/main.css{% endcss_asset_tag %}
+  <link rel="alternate" type="application/atom+xml" title="Feed for category: {{ page.categories | first }}" href="{% page_feed_url %}" />
+{% if page.excerpt %}
+  <!-- Twitter cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:creator" content="@{{ site.twitter }}" />
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:url" content="//{{ site.url | remove: 'http://' }}{{ page.url }}">
+  <meta name="twitter:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 200 }}">{% endif %}
 </head>
 <body  class="{% if page.post_class != false %}{{page.post_class}}{% else %}home-template{% endif %}">
-    <header class="site-head {% if page.cover %}site-cover{% endif %}">
-        <div class="vertical">
-            <div class="site-head-content">
-                {% if page.logo %}
-		    <a class="blog-logo" href="{{ site.baseurl }}"><img src="{{ page.logo }}" alt="Blog Logo" /></a>
-                {% endif %}
-                <h1 class="blog-title">{{ site.name }}</h1>
-                <h2 class="blog-description">{{ site.description }}</h2>
-            </div>
-        </div>
-    </header>
-    {{ content }}
-    <footer class="site-footer">
-        <p><a class="subscribe icon-feed" href="{% page_feed_url %}"><span class="tooltip">Subscribe!</span></a></p>
-	<p>List of all <a href="/feeds.html">available feeds</a></p>
-        <div class="inner">
-             <section class="copyright"><a href="{{ site.baseurl }}">{{ site.name }}</a> &copy; &bull; All rights reserved .</section>
-             <section class="poweredby">Made with Jekyll</section>
-        </div>
-    </footer>
-    <!-- script type="text/javascript" src="/assets/js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="/assets/js/index.js"></script -->
+  <header class="site-head {% if page.cover %}site-cover{% endif %}">
+    <div class="vertical">
+      <div class="site-head-content">
+ {% if page.logo %}        <a class="blog-logo" href="{{ site.baseurl }}"><img src="{{ page.logo }}" alt="Blog Logo" /></a>{% endif %}
+        <h1 class="blog-title">{{ site.name }}</h1>
+        <p class="blog-description">{{ site.description }}</p>
+      </div>
+    </div>
+  </header>
+{{ content }}
+  <footer class="site-footer">
+    <p><a class="subscribe icon-feed" href="{% page_feed_url %}"><span class="tooltip">Subscribe!</span></a></p>
+    <p>List of all <a href="/feeds.html">available feeds</a></p>
+    <div class="inner">
+      <section class="copyright"><a href="{{ site.baseurl }}">{{ site.name }}</a> &copy; &bull; All rights reserved.</section>
+      <section class="poweredby">Made with Jekyll</section>
+    </div>
+  </footer>
 </body>
 </html>
