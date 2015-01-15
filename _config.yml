@@ -45,6 +45,13 @@ permalink: /:year/:month/:day/:title
 
 exclude: ["LICENSE.txt", "README.md", "Gemfile", "Gemfile.lock", ".git", ".gitignore", ".bundle", "vendors"]
 
+#defaults:
+#  -
+#    scope:
+#      path: _drafts/
+#    value:
+#      layout: post
+#      lang: fr
 defaults:
   -
     scope:

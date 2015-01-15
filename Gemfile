@@ -9,5 +9,6 @@ gem 'jekyll-sass-converter'
 gem 'jekyll-watch'
 gem 'jekyll-oembed'
 
-gem 'therubyrhino'
+#gem 'therubyrhino'
 gem 'therubyracer', :platforms => :ruby
+gem 'typogruby'
