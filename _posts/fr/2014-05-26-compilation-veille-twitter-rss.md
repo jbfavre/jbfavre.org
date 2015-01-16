@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Compilation veille Twitter & RSS #01"
 category: veille
 ---

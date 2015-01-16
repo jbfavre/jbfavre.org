@@ -1,6 +1,6 @@
 ---
-title: "PSES2014: Elasticsearch, Logstash & Kibana"
 layout: post
+title: "PSES2014: Elasticsearch, Logstash & Kibana"
 category: PSES
 tags: [elk,talks]
 ---

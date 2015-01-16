@@ -1,6 +1,6 @@
 ---
-title: Debian meetup du 4 juin 2014 chez Mozilla
 layout: post
+title: Debian meetup du 4 juin 2014 chez Mozilla
 category: debian
 tags: [talks,backport,jenkins]
 ---
