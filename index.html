@@ -24,6 +24,7 @@ cover: true
     <article class="post">
         <header class="post-header">
             <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+            <aside class='post-meta'><p>Read this in {{ post.content | reading_time }}</p></aside>
         </header>
         <section class="post-excerpt">
             {{ post.excerpt }}
