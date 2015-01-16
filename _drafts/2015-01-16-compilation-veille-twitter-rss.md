@@ -1,6 +1,5 @@
 ---
-layout: post
-title: "Compilation veille Twitter & RSS"
+title: "Compilation veille Twitter & RSS #2015-02"
 category: veille
 ---
 
@@ -34,6 +33,9 @@ For example, I had created a function sc (for script console) in order to start 
 
 ## Architecture
 
+[API Best Practices: Hypermedia (Part 2)](http://blogs.mulesoft.org/api-best-practices-hypermedia-part-2/)
+: Hypermedia sounds great in theory, but theory only goes so far. Where hypermedia really shines, or completely fails, is in implementation. Unfortunately, as hypermedia is still a relatively new aspect of web based APIs, there isn’t one specified way of doing things. In fact, you’ll find that even some of the most popular APIs operate completely differently from each other.
+
 [Does SDPY (or HTTP/2) Actually Help?](https://ma.ttias.be/sdpy-http2-actually-help/)
 : Here's an interesting PDF to read: How speedy is SPDY?.  
 I'll spoil the results for you, but still encourage you to read the entire PDF to see how the conclusions were built.
@@ -45,6 +47,9 @@ I'll spoil the results for you, but still encourage you to read the entire PDF t
 : I just watched Martin Fowler's talk about Microservices at XConf. Here are some of my notes and related thoughts. The talk is heavily based upon Martin Fowler and James Lewis' article about Microservices, so you can find and read most of the information there.
 
 ## Cloud
+
+[Cloud Applications: Migrate or Transform?](http://nirmata.com/2014/04/cloud-applications-migrate-transform/)
+: Cloud computing is forcing application developers to think differently about application architecture. Just as client side developers faced a huge paradigm shift from desktop to mobile application development, server side developers are experiencing a similar shift as they develop applications for the cloud. Deploying an application that is not architected for cloud (i.e. cloud native) cannot harness any benefits of the underlying cloud infrastructure and will result in increased operational costs in the long run. For developers building new cloud applications it is absolutely critical to get the architecture right the first time and avoid costly redesigns.
 
 [The Stunning Scale of AWS and What it Means for the Future of the Cloud](http://highscalability.com/blog/2015/1/12/the-stunning-scale-of-aws-and-what-it-means-for-the-future-o.html)
 : James Hamilton, VP and Distinguished Engineer at Amazon, and long time blogger of interesting stuff, gave an enthusiastic talk at AWS re:Invent 2014 on AWS Innovation at Scale. He’s clearly proud of the work they are doing and it shows.
@@ -58,6 +63,9 @@ I'll spoil the results for you, but still encourage you to read the entire PDF t
 : We’ve been working on TokuMXse for quite some time now. TokuMXse is the MongoDB 2.8 storage engine version of TokuMX that we’ll be shipping when MongoDB 2.8 goes GA. We will have an RC version available soon for download and feedback. Before we dig into the numbers I’d like to share my thoughts about them.
 
 ### MySQL
+
+[Everything You Need to Know About Scaling MySQL – Part 1: An Overview](http://blog.clustrix.com/2015/01/06/everything-need-know-scaling-mysql-part-1-overview/)
+: Those who’ve followed our blog closely or stopped by before have almost certainly noticed that we’ve discussed MySQL’s approach to performance quite a few times already. While the popular open source database does have its merits, as technology evolves and customers grow to expect even more of e-commerce websites, one can’t help but see its limitations, particularly when it comes to scalability.
 
 [MySQL performance implications of InnoDB isolation modes](http://www.percona.com/blog/2015/01/14/mysql-performance-implications-of-innodb-isolation-modes/)
 : Over the past few months I’ve written a couple of posts about dangerous debt of InnoDB Transactional History and about the fact MVCC can be the cause of severe MySQL performance issues. In this post I will cover a related topic – InnoDB Transaction Isolation Modes, their relationship with MVCC (multi-version concurrency control) and how they impact MySQL performance.
@@ -76,6 +84,9 @@ I'll spoil the results for you, but still encourage you to read the entire PDF t
 : At Spotify we have have over 60 million active users who have access to a vast music catalog of over 30 million songs. Our users have a choice to follow thousands of artists and hundreds of their friends and create their own music graph. On our service they also discover new and existing content by experiencing a variety of music promotions (album releases, artist promos), which get served over our ad platform. These options have empowered our users and made them really engaged. Over time they have created over 1.5 billion playlists and just last year they streamed over 7 billion hours worth of music.
 
 ## MaxScale
+
+[Business Scalability, Operational Efficiency and Competitive Edge with MariaDB MaxScale 1.0 GA](https://mariadb.com/blog/business-scalability-operational-efficiency-and-competitive-edge-mariadb-maxscale-10-ga)
+: When I started my career in early nineties, the Internet, the open source software movement and the Linux operating system were in their infancy and MariaDB and MySQL did not exist. Today open source is a mainstream software delivery mechanism, and web applications are built upon open source stacks which include Linux and MariaDB. Sybase was the first relational database I worked with - a then leading relational technology in early nineties. Four months ago, I joined the team at MariaDB - a now leading open source relational database company where fast and cutting edge innovations take place.
 
 [MaxScale and Transparent Session Handling](https://mariadb.com/blog/maxscale-and-transparent-session-handling)
 : Applications are often built on top of single MySQL-compliant database instance but often there is a need for more performance and/or availability than what one database instance can provide. Adding slaves or replacing standalone database server with full-fledged MySQL-compliant cluster often requires changes to the application.
@@ -105,11 +116,11 @@ I'll spoil the results for you, but still encourage you to read the entire PDF t
 : Some databases are awesome enough to implement the `MEDIAN()` aggregate function. Remember that the `MEDIAN()` is sligthly different from (and often more useful than) the `MEAN()` or `AVG()` (average).
 
 [Counting Primitive Bit Strings](http://www.johndcook.com/blog/2014/12/23/counting-primitive-bit-strings/)
-: A string of bits is called primitive if it is not the repetition of several copies of a smaller string of bits. For example, the 101101 is not primitive because it can be broken down into two copies of the string 101. In Python notation, you could produce 101101 by "101"*2. The string 11001101, on the other hand, is primitive. (It contains substrings that are not primitive, but the string as a whole cannot be factored into multiple copies of a single string.
+: A string of bits is called primitive if it is not the repetition of several copies of a smaller string of bits. For example, the 101101 is not primitive because it can be broken down into two copies of the string 101. In Python notation, you could produce 101101 by `"101"*2`. The string 11001101, on the other hand, is primitive. (It contains substrings that are not primitive, but the string as a whole cannot be factored into multiple copies of a single string).
 
 ### Analytics
 
-[Simplify your Google Analytics Reporting with Add-ons for Google Sheets](http://analytics.blogspot.fr/2015/01/simplify-your-google-analytics.html)
+[Decision Tree – Simplified!](http://www.analyticsvidhya.com/blog/2015/01/decision-tree-simplified/)
 : It's common for Google Analytics users to use spreadsheets to analyze their Google Analytics data or combine it with another data source. But exporting your data from Google Analytics to Google Sheets is a manual process, and it can be tedious if you run reports frequently or manage multiple accounts. With the release of Add-ons for Google Sheets, getting your Google Analytics data into Google Sheets has never been easier!
 
 [Dynamite Plots, Logs, & the Joy In Knowing](https://blog.logentries.com/2015/01/dynamite-plots-logs-the-joy-in-knowing/)
