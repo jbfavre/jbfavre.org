@@ -7,7 +7,7 @@ gem 'jekyll-gist'
 gem 'jekyll-paginate'
 gem 'jekyll-sass-converter'
 gem 'jekyll-watch'
-gem 'jekyll-oembed'
+gem 'jekyll-oembed', :require => 'jekyll_oembed'
 
 #gem 'therubyrhino'
 gem 'therubyracer', :platforms => :ruby
