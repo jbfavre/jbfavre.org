@@ -397,6 +397,9 @@ margin on the iframe, cause it breaks stuff. */
     font-weight: bold;
     font-family: 'Open Sans', sans-serif;
 }
+.blog-title a {
+    text-decoration: none;
+}
 
 .blog-description {
     margin: 0;
@@ -836,12 +839,22 @@ margin on the iframe, cause it breaks stuff. */
     top: -33px;
 }
 
+@media only screen and (max-width: 1920px) {
+    .site-cover{
+        background-image: url('/assets/images/background-header-1920.jpg');
+    }
+}
 
+@media only screen and (max-width: 1280px) {
+    .site-cover{
+        background-image: url('/assets/images/background-header-1280.jpg');
+    }
+}
 /* ==========================================================================
    9. Media Queries - Smaller than 900px
    ========================================================================== */
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 980px) {
 
     blockquote {
         margin-left: 0;
@@ -854,20 +867,9 @@ margin on the iframe, cause it breaks stuff. */
         height: auto;
     }
 
-/*
     .site-cover{
         background: none;
-        background-image: url('/assets/images/background-header.jpg');
-        background-repeat: no-repeat;
-        background-position: 50%;
-        height: auto;
-        padding: 15% 0;
-        min-height: 240px;
-        background-color: red;
-        background-size: cover;
     }
-*/
-
     .blog-title {
         font-size: 4rem;
         letter-spacing: -1px;
