@@ -603,8 +603,12 @@ margin on the iframe, cause it breaks stuff. */
 }
 
 .post-template .blog-title {
+    font-size: 4rem;
+    letter-spacing: -1px;
+/*
     display: inline-block;
     padding: 2.5rem 0;
+*/
 }
 
 /* Keep large images within the bounds of the post-width */
@@ -850,7 +854,9 @@ margin on the iframe, cause it breaks stuff. */
         height: auto;
     }
 
+/*
     .site-cover{
+        background: none;
         background-image: url('/assets/images/background-header.jpg');
         background-repeat: no-repeat;
         background-position: 50%;
@@ -860,6 +866,7 @@ margin on the iframe, cause it breaks stuff. */
         background-color: red;
         background-size: cover;
     }
+*/
 
     .blog-title {
         font-size: 4rem;
@@ -881,7 +888,7 @@ margin on the iframe, cause it breaks stuff. */
     }
 
     .post-template .post-header {
-        padding: 40px 0;
+        padding: 0;
     }
 
     h1 {
@@ -909,7 +916,7 @@ margin on the iframe, cause it breaks stuff. */
 
 
 @media only screen and (max-width: 500px) {
-    .site-head{
+    .site-head, .post-template .site-head{
         padding:0;
         margin-bottom:0;
     }
@@ -949,13 +956,13 @@ margin on the iframe, cause it breaks stuff. */
         line-height: 1.6em;
     }
 
-    .blog-title {
+    .blog-title, .post-template .blog-title {
         font-size: 2.3rem;
         margin-bottom: 0;
     }
 
     .blog-description {
-        display: none;
+        /*display: none;*/
     }
 
 
@@ -982,21 +989,33 @@ margin on the iframe, cause it breaks stuff. */
     }
 
     .post-template .post-header {
-        padding: 30px 0;
+        padding: 30px 0 0 0;
     }
 
     .post-meta {
         font-size: 1.3rem;
     }
+    .post-template .post-meta {
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
 
     .post-footer {
         padding: 4rem 0;
-        text-align: center;
+        text-align: left;
+    }
+    .archive ul {
+        margin-left: 0px;
+        padding-left: 16px;
+    }
+    .archive a {
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     .post-meta .author {
-        margin: 0 0 2rem 0;
-        padding: 0 0 1.6rem 0;
+        margin: 0;
+        padding: 0;
         border-bottom: #EBF2F6 1px dashed;
         text-align: center;
     }
@@ -1005,6 +1024,10 @@ margin on the iframe, cause it breaks stuff. */
         position: static;
         width: auto;
         text-align: center;
+        margin: 0;
+    }
+    .post-meta .share h4 {
+        display:none;
     }
 
     .post-meta .share a {
