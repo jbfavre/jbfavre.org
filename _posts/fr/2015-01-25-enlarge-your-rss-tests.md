@@ -2,19 +2,15 @@
 layout: post
 title: "Enlarge your RSS... Enfin un test"
 category: analytics
-tag: [selfoss,php,mathématiques]
+tag: [php,selfoss,Data Science]
 ---
 
 
-
 Le [premier épisode](//blog-notes.jbfavre.org/?enlarge-your-rss,3036) avait vu 
-l'échec d'une tentative d'analyse du texte à l'aide des méthodes utilisées par 
-les filtres anti-spam.
+l'échec d'une analyse du texte à l'aide des méthodes anti-spam. 
 Le [second épisode](//blog-notes.jbfavre.org/?enlarge-your-rss-la-suite-mais-pas-la-fin,3037)
-quant à lui avait vu émerger un début de solution sans toutefois ni test ni 
-expérimentation.
-Il était donc temps de remettre la main à la pâte. Voici le résultat de quelques
-essais sur le sujet.
+avait vu émerger un début de solution à base de votes. 
+Voici l'analyse et la simulation.
 
 ## Le contexte
 
@@ -31,7 +27,8 @@ veux pouvoir conserver ces derniers et l'affichage par ordre de catégorie, un
 instant envisagé pour sa simplicité, me paraît trop rigide.
 
 Depuis près d'un an maintenant, j'enregistre les actions que j'ai sur les
-articles tout au long de ma lecture. J'ai donc un an de données à analyser.
+articles tout au long de ma lecture. J'ai un peu plus de 56000 articles à
+analyser.
 
 ## L'analyse
 
@@ -41,6 +38,8 @@ un article ouvert et partagé 2, un article ouvert, partagé et sauvegardé 3, e
 Ensuite, il s'agit de calculer le score de la source. Pour cela, il faut d'abord
 combiner le résultat des "votes" pour chaque article, avant d'agréger tout cela
 pour en déduire le score du flux.
+
+### Choix des algorithmes
 
 J'avais d'abord envisagé d'utiliser une bête
 [moyenne](https://fr.wikipedia.org/wiki/Moyenne_arithm%C3%A9tique),
@@ -66,7 +65,7 @@ Pour le calcul du score WCI (Wilson Confidence Interval), j'ai utilisé une
 Pour le calcul de la moyenne exponentielle glissante (Exponential Moving Average
 ou EMA), j'ai simplement défini une fonction implémentant la formule.
 
-Le principe est donc le suivant:
+### Pseudo-code
 
     pour chaque source
         pour tous les articles notés depuis la dernière mises à jour
@@ -75,7 +74,11 @@ Le principe est donc le suivant:
             score_final_articles = ( score_moyen_articles + score_wci_articles ) / 2
         score_source = EMA (old_score, nb_articles, new_score)
 
-Les graphes sont donnés ci-dessous (réalisés avec GnuPlot):
+### Représentation graphique
+
+Les graphes sont donnés ci-dessous (réalisés avec GnuPlot). Pour les 3 premiers,
+l'abscisse représente les `run`. La mise à jour du score est faite chaque heure.  
+Pour l'exemple, j'ai limité l'analyse à un peu plus d'un mois.
 
 ![Score des flux par moyenne](//medias.jbfavre.org/blog-notes/2015-01-15-score-AVG.png)
 
@@ -90,7 +93,10 @@ Le mélange des 2 (2 fois le score moyen plus le score WCI divisé par 3) me
 donne lui un résultat potentiellement exploitable. Le poids des 2 scores a
 été décrété de manière unilatérale par moi-même :p
 
-Il est temps de vérifier le résultat final.  
+## Conclusion
+
+Il est temps de vérifier le résultat final. Le graphe représente le score final,
+en ordonnée, des sources analysées, en abscisse.  
 Pouf, voilà:
 
 ![Score final des flux RSS utilisant la combinaison de la moyenne et de l'intervalle de Wilson](//medias.jbfavre.org/blog-notes/2015-01-15-score-SRC.png)

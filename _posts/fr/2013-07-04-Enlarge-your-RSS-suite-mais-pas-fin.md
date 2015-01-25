@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Enlarge your RSS... la suite, mais pas la fin"
-category: dev
-tags: [php,selfoss]
+category: analytics
+tags: [php,selfoss,Data Science]
 ---
 
 Le filtre bayésien ne fonctionne pas comme espéré. C'est sûrement de ma faute, j'ai dû rater un truc, mais en attendant je suis toujours bien embêté pour effectuer ma veille de manière plus efficace.

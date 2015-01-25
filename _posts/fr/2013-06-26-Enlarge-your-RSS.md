@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Enlarge your RSS"
-category: dev
-tags: [php,selfoss]
+category: analytics
+tags: [php,selfoss,Data science]
 ---
 
 Le spam est un fléau tel que de nombreuses recherches ont été effectuées pour le combattre.  
