@@ -839,17 +839,6 @@ margin on the iframe, cause it breaks stuff. */
     top: -33px;
 }
 
-@media only screen and (max-width: 1920px) {
-    .site-cover{
-        background-image: url('/assets/images/background-header-1920.jpg');
-    }
-}
-
-@media only screen and (max-width: 1280px) {
-    .site-cover{
-        background-image: url('/assets/images/background-header-1280.jpg');
-    }
-}
 /* ==========================================================================
    9. Media Queries - Smaller than 900px
    ========================================================================== */
