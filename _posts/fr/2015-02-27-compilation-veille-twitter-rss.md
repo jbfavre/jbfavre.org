@@ -2,6 +2,7 @@
 layout: post
 title: "Compilation veille Twitter & RSS #2015-08"
 category: veille
+date: 2015-02-27 18:00 +0100
 ---
 
 La moisson de liens pour les semaine du 23 au 27 janvier 2015.
