@@ -26,8 +26,8 @@ category_feed_dir: category
 author:
   name: Jean Baptiste Favre
   bio: |
-    Sysadmin, tendance hacker. Je tripatouille tout ce que je touche.
-    Architecte système chez BlaBlaCar le jour, numérisateur de livres numériques la nuit.
+    Sysadmin, tendance hacker.
+    Ops manager chez BlaBlaCar le jour, moine copiste de livres numériques la nuit.
   email: webmaster@jbfavre.org
 
 github: jbfavre
