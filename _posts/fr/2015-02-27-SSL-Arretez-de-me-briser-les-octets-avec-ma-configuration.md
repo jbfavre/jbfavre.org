@@ -4,6 +4,7 @@ title: "SSL - Arrêtez de me briser les octets avec ma configuration"
 category: sysadmin
 tags: [tls,security,troll]
 date: 2015-02-27 21:00 +0100
+lang: fr
 ---
 
 Les tests SSL fleurissent sur le Net. Il s'agit de vérifier que la configuration 
@@ -22,7 +23,7 @@ dépend de 2 facteurs principaux:
 - ce que le serveur supporte et offre
 - ce que le client supporte et accepte
 
-Mais il dépend aussi de la "fermeté" des négociateurs, c'est-à-dire au respect
+Mais il dépend aussi de la "fermeté" des négociateurs, c'est-à-dire du respect
 de la priorité des choix proposés.
 
 Actuellement, on ne se concentre que sur le premier point, et encore de manière
@@ -39,7 +40,7 @@ d'un serveur de mail ou jabber, pas du tout pour un serveur web.
 Pourtant, c'est exactement le même principe.
 
 Le but premier d'Internet est de communiquer. Une application trop restrictive
-d'une sécurité rêvée, au sens de souhaitée pas imaginée, va à l'encontre de ce
+d'une sécurité rêvée - au sens de souhaitée et non au sens d'imaginée - va à l'encontre de ce
 principe.  
 Quid de l'internaute qui, quelqu'en soit la raison, utilise une vieille version
 d'un navigateur ? C'est dommage, nous somme bien d'accord, mais avons-nous
@@ -48,29 +49,29 @@ chose pour corriger cela ?
 
 Négligence, manque de temps, ignorance des enjeux, absence de moyens financiers
 pour renouveler un système d'exploitation obsolète, les raisons sont diverses
-et nous ne les connaissons pas. En quoi donc devrions-nous leur interdire
-l'accès à notre serveur ?
+et nous ne les connaissons pas. Doit-il pour autant leur interdire l'accès à
+notre serveur ?
 
 Un certain nombre de principes devraient être remis au goût du jour:
 
 - Le serveur doit privilégier la compatibilité. De ce fait, il devrait supporter
   le panel de protocoles/algorythmes le plus large possible tout en privilégiant
   un chiffrement fort lorsque supporté par le client.
-- Le client lui, supporte les protocoles/algo qu'il souhaite (ce peut être un
+- Le client, lui, supporte les protocoles/algo qu'il souhaite (ce peut être un
   choix de l'admin). Si la négociation échoue, c'est le problème du client, pas
   celui du serveur (ou presque).
 
 Est-ce à dire qu'il faut autoriser n'importe quoi ?  
-Si un client et un serveur supportent tous deux les dernières version des
+Si un client et un serveur supportent tous deux les dernières versions des
 protocoles, ainsi que les algorithmes les plus robustes, faut-il pour autant
 tolérer la négotiation d'un chiffrement faible ?  
 Faut-il, sous prétexte de compatibilité, continuer à autoriser un chiffrement
-tellement faible qu'il peut-être cassé très rapidement pas le premier venu ?
+tellement faible qu'il peut-être cassé très rapidement par le premier venu ?
 
 Non bien sûr.  
 Néanmoins, une énumération des capacités de chiffrement d'un serveur sous la
-forme du liste à la Prévert accompagnée de la distribution des bons et mauvais
-point n'ont, en fait, aucun intérêt. Il peuvent même avoir des effets pervers
+forme d'une liste à la Prévert accompagnée de la distribution des bons et mauvais
+points n'a, en fait, aucun intérêt. Cela peut même avoir des effets pervers
 en incitant l'administrateur pressé à appliquer une configuration en réalité
 trop restrictive.
 
@@ -85,8 +86,8 @@ serveur est donc celui qui fonctionnera de la manière suivante:
   progressivement ouvert jusqu'à un niveau plancher en dessous duquel le client
   cessera d'essayer de se connecter.
 
-La note finale du serveur reflètera donc le niveau pratique du chiffrement, pas
-un niveau fantasmé.
+La note finale du serveur reflètera donc le niveau pratique du chiffrement, et
+non un niveau fantasmé.
 
 Reste que parfois, il convient tout de même de vérifier l'abandon d'un protocole
 devenu trop dangereux, par exemple SSL, version 3 incluse. Ceci nous laisse tout
