@@ -22,7 +22,6 @@ category_feed_dir: category
 #tag_feed_layout: tag_feed
 #tag_permalink_style: pretty
 
-
 author:
   name: Jean Baptiste Favre
   bio: |
@@ -65,4 +64,3 @@ defaults:
     values:
       layout: post
       lang: fr
-
