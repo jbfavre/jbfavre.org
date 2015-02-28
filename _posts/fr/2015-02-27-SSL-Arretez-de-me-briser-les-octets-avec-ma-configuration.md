@@ -40,8 +40,8 @@ d'un serveur de mail ou jabber, pas du tout pour un serveur web.
 Pourtant, c'est exactement le même principe.
 
 Le but premier d'Internet est de communiquer. Une application trop restrictive
-d'une sécurité rêvée - au sens de souhaitée et non au sens d'imaginée - va à l'encontre de ce
-principe.  
+d'une sécurité rêvée -- au sens de souhaitée et non au sens d'imaginée -- va à
+l'encontre de ce principe.  
 Quid de l'internaute qui, quelqu'en soit la raison, utilise une vieille version
 d'un navigateur ? C'est dommage, nous somme bien d'accord, mais avons-nous
 réellement la capacité d'en deviner la raison, et surtout, de faire quelque
