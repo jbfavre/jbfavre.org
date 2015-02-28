@@ -60,7 +60,19 @@ defaults:
       lang: en
   -
     scope:
+      path: _drafts/en
+    values:
+      layout: post
+      lang: en
+  -
+    scope:
       path: _posts/fr
+    values:
+      layout: post
+      lang: fr
+  -
+    scope:
+      path: _drafts/fr
     values:
       layout: post
       lang: fr
