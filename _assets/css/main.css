@@ -5,17 +5,13 @@ body {font-size: 1.9rem;}
 
 .small-header{
     min-height: 10px;
-    background: red;
+    background: #999;
     margin-bottom: 0.4em;
 }
 
 .site-head-content{
-    background: red;
     padding: 0.4em;
 }
-
-/* Adding some text shadow*/
-.site-head a {color:#eee;}
 
 /* The font is too large in the post view. Revert to small size*/
 .post-header .blog-title {font-size:inherit;}
@@ -45,8 +41,6 @@ img.profile {
 
 /*personnalize date */
 .content-post time{
-    background-color: red;
     color: white;
     padding: 0 0.3em;
 }
-

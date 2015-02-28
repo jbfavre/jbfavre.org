@@ -27,7 +27,28 @@ cover: true
             <aside class='post-meta'><p>Read this in {{ post.content | reading_time }}</p></aside>
         </header>
         <section class="post-excerpt">
-            {{ post.excerpt }}
+{% if page.lang == 'fr' or post.lang == 'fr' %}
+{% capture compress %}
+{% assign temp1 = post.excerpt | split: '<pre>' %}
+{% for temp2 in temp1 %}
+{% assign temp3 = temp2 | split: '</pre>' %}
+{% if temp3.size == 2 %}
+<pre>{{ temp3.first | newline_to_br }}</pre>
+{% endif %}
+{% assign t = temp3.last %}
+{% assign t = t | replace: '“' , '«&#160;' %}
+{% assign t = t | replace: '”' , '&#160;»' %}
+{% assign t = t | replace: ' :',       '&#160;:' %}
+{% assign t = t | replace: ' %',       '&#160;%' %}
+{% assign t = t | replace: ' ;', '<span style="white-space:nowrap">&thinsp;</span>;' %}
+{% assign t = t | replace: ' !', '<span style="white-space:nowrap">&thinsp;</span>!' %}
+{% assign t = t | replace: ' ?', '<span style="white-space:nowrap">&thinsp;</span>?' %}
+{{ t | split: ' ' | join: ' ' }}
+{% endfor %}
+{% endcapture %}{{ compress | strip_newlines }}
+{% else %}
+{{post.excerpt}}
+{% endif%}
         </section>
 	<aside class="post-meta">
 		<p>Posté le <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date_to_string }}</time>

@@ -99,13 +99,12 @@ body {
 
 ::-moz-selection {
     color: white;
-    background: red;
     text-shadow: none;
 }
 
 ::selection {
     color: white;
-    background: red;
+    background: #999;
     text-shadow: none;
 }
 
@@ -148,19 +147,12 @@ h6 {
 }
 
 a {
-    color: red;
     transition: color ease 0.3s;
 }
 
 a:hover {
-    color: #3A4145    ;
+    color: #3A4145;
 }
-
-h1 a, h2 a, h3 a,
-h4 a, h5 a, h6 a {
-    color: red;
-}
-
 
 p, ul, ol, dl {
     margin: 1.6em 0;
@@ -260,7 +252,7 @@ kbd {
     margin-bottom: 0.4em;
     padding: 1px 8px;
     border: #ccc 1px solid;
-    color: #666;
+    color: #999;
     text-shadow: #fff 0 1px 0;
     font-size: 0.9em;
     font-weight: bold;
@@ -290,7 +282,6 @@ table td {
 }
 
 table th { color: #000; }
-
 table caption + thead tr:first-child th,
 table caption + thead tr:first-child td,
 table colgroup + thead tr:first-child th,
@@ -363,7 +354,6 @@ margin on the iframe, cause it breaks stuff. */
     width: 100%;
     margin-bottom: 5rem;
     text-align: center;
-    color: #fff;
 }
 
 /* the image for the site header*/
@@ -372,7 +362,6 @@ margin on the iframe, cause it breaks stuff. */
     background-repeat: no-repeat;
     background-position: 50%;
     height: 50%;
-    background-color: red;
     background-size: cover;
 }
 
@@ -485,7 +474,6 @@ margin on the iframe, cause it breaks stuff. */
 }
 
 .post-meta a {
-    color: red;
     text-decoration: none;
 }
 
