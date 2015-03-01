@@ -18,9 +18,6 @@ tag_page_dir: tag
 tag_feed_dir: tag
 category_page_dir: category
 category_feed_dir: category
-#tag_page_layout: tag_index
-#tag_feed_layout: tag_feed
-#tag_permalink_style: pretty
 
 author:
   name: Jean Baptiste Favre
@@ -44,13 +41,6 @@ permalink: /:year/:month/:day/:title
 
 exclude: ["LICENSE.txt", "README.md", "Gemfile", "Gemfile.lock", ".git", ".gitignore", ".bundle", "vendors"]
 
-#defaults:
-#  -
-#    scope:
-#      path: _drafts/
-#    value:
-#      layout: post
-#      lang: fr
 defaults:
   -
     scope:
