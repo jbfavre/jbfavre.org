@@ -9,7 +9,7 @@ J'ai eu l'occasion d'installer `Debian` sur un `Macbook Pro 11-1`. Il s'agissait
 
 ## Préparation
 
-L'installation de `Debian` sur un Macbook Pro ne s'improvise pas totalement.  
+L'installation de `Debian` sur un Macbook Pro, comme sur n'importe quelle machine du reste, ne s'improvise pas totalement.  
 Il faut d'une part lire les documentations existantes, voir en fin d'article, mais également préparer un minimum de chose, à commencer par la clef USB qui nous permettra de démarrer sous notre système d'exploitation préféré.
 
 J'ai utilisé une image `iso` netinst de l'installeur `Jessie`. Bien que non stable, c'est cette version que j'utilisait sur mon ancien portable. Il était donc naturel pour moi de continuer sur ma lancée. Accessoirement, c'était aussi l'occasion de tester l'installeur.
@@ -27,7 +27,8 @@ Au démarrage du Mac, dès que vous entendez le son, appuyez sur la touche `alt`
 Choisissez votre clef USB.
 
 L'installation de Debian en elle-même s'est parfaitement déroulée, modulo un bug de l'installeur qui ne connaissait plus ni `ext4`, ni `btrsf`, ni `jfs`. Gênant...  
-J'en ai été quitte pour recommencer la procédure avec la `Release Candidate 1` de l'installeur, disponible à cette adresse: [http://cdimage.debian.org/cdimage/jessie_di_rc1/](http://cdimage.debian.org/cdimage/jessie_di_rc1/). Cette fois là, tout s'est très bien déroulé.
+J'en ai été quitte pour recommencer la procédure avec la `Release Candidate 1` de l'installeur, disponible à cette adresse: [http://cdimage.debian.org/cdimage/jessie_di_rc1/](http://cdimage.debian.org/cdimage/jessie_di_rc1/). Cette fois là, tout s'est très bien déroulée.  
+Le détails de mes déboires avec l'installeur Jessie est disponible dans mon [rapport d'installation #779651](http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=779651)
 
 Le Macbook Pro est donc installé sur un `LVM` chiffré.
 
@@ -80,7 +81,7 @@ Malheureusement, si l'hibernation fonctionne plutôt pas mal, la mise en veille 
 
 ### Son
 
-Le son fonctione correctement. Néanmoins, la prise casque comporte également une sortie optique qui est allumée par défaut. Impossible de l'éteindre par les menus "classiques". Seule manière de faire, exécuter
+Le son fonctione correctement. Néanmoins, la prise casque comporte également une [sortie optique SPDIF qui est allumée](https://bugzilla.kernel.org/show_bug.cgi?id=64401#c25) par défaut. Impossible de l'éteindre par les menus "classiques". Seule manière de faire, exécuter
 
     /usr/bin/hda-verb /dev/snd/hwC1D0 0x0e SET_POWER_STATE 0x03
 
@@ -88,7 +89,7 @@ La commande a terminé dans `/etc/rc.local`
 
 ### kworker
 
-J'ai été confronté à un bug particulièrement vicieux: un process `kworker` qui bouffe 80% d'un CPU en permamence. Seule solution, désactiver l'interruption qui en est responsable
+J'ai été confronté à un bug particulièrement vicieux: un [process `kworker` qui bouffe 80% d'un CPU en permamence](https://bugzilla.kernel.org/show_bug.cgi?id=85881). Seule solution, désactiver l'interruption qui en est responsable
 
     echo disable > /sys/firmware/acpi/interrupts/gpe66
 
@@ -97,7 +98,7 @@ La commande a également terminé dans `/etc/rc.local`
 ## Soucis restant
 
 Il reste néanmoins quelques soucis plus persistants...  
-Le plus gênant aujourd'hui concerne le pilote graphique `i915`. De temps à autres, il semble ne pas très bien supporter la mise en veille et manifeste son mécontement dans `dmesg`
+Le plus gênant aujourd'hui concerne le pilote graphique `i915`. De temps à autres, il semble ne pas très bien supporter la mise en veille et manifeste son mécontement. Le bug est connu chez [Ubuntu](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1384297) et [Redhat](https://bugzilla.redhat.com/show_bug.cgi?id=1120901)
 
     Mar  3 12:01:02 jbfavre kernel: [ 8881.708464] ------------[ cut here ]------------
     Mar  3 12:01:02 jbfavre kernel: [ 8881.708480] WARNING: CPU: 0 PID: 782 at /build/linux-SAvLSw/linux-3.16.7-ckt7/drivers/gpu/drm/i915/intel_display.c:4954 intel_modeset_check_state
@@ -162,16 +163,6 @@ Du coup, tous les collègues sont au courant quand je suis obligé de redémarre
 
 ## Sources
 
-### Documentation
-
 - [Wiki Debian MacBookPro 11-1](https://wiki.debian.org/InstallingDebianOn/Apple/MacBookPro/11-1)
 - [Wiki Ubuntu MacBookPro 11-1](https://help.ubuntu.com/community/MacBookPro11-1/Saucy)
 - [Wiki ArchLinux MacBookPro 11-1](https://wiki.archlinux.org/index.php/MacBookPro11,x)
-
-### Bugs
-
-- [SPDIF light off](https://bugzilla.kernel.org/show_bug.cgi?id=64401#c25)
-- [Kernel kworker process uses 80% CPU]https://bugzilla.kernel.org/show_bug.cgi?id=85881)
-
-- [i915 Ubuntu bug](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1384297)  
-- [i915 RedHat / Fedora bug](https://bugzilla.redhat.com/show_bug.cgi?id=1120901)
