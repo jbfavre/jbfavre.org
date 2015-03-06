@@ -1,8 +1,8 @@
 ---
 layout: post
-title: GNU/Linux Debian sur un Macbook Pro 11-1
+title: GNU/Linux Debian Jessie sur un Macbook Pro 11-1
 category: sysadmin
-tags: [jessie,installation,macbook pro]
+tags: [debian,jessie,installation,macbook pro]
 date: 2015-05-06 14:00:00 +0100
 name: debian-jessie-installation-on-macbookpro-111
 ---
@@ -12,11 +12,11 @@ J'ai eu l'occasion d'installer `Debian` sur un `Macbook Pro 11-1`. Il s'agissait
 ## Préparation
 
 L'installation de `Debian` sur un Macbook Pro, comme sur n'importe quelle machine du reste, ne s'improvise pas totalement.  
-Il faut d'une part lire les documentations existantes, voir en fin d'article, mais également préparer un minimum de chose, à commencer par la clef USB qui nous permettra de démarrer sous notre système d'exploitation préféré.
+Il faut d'une part lire les documentations existantes, voir en fin d'article, mais également préparer un minimum de choses, à commencer par la clef USB qui nous permettra de démarrer sous notre système d'exploitation préféré.
 
-J'ai utilisé une image `iso` netinst de l'installeur `Jessie`. Bien que non stable, c'est cette version que j'utilisait sur mon ancien portable. Il était donc naturel pour moi de continuer sur ma lancée. Accessoirement, c'était aussi l'occasion de tester l'installeur.
+J'ai utilisé une image `iso` netinst de l'installeur `Jessie`. Bien que non encore stable, j'utilisais déjà `Jessie` sur mon ancien portable. Il était donc naturel pour moi de continuer sur ma lancée. Accessoirement, c'était aussi l'occasion de tester l'installeur.
 
-L'image que j'ai utilisée est disponible ici: [http://cdimage.debian.org/cdimage/weekly-builds/](http://cdimage.debian.org/cdimage/weekly-builds/). Il s'agit d'images générées automatiquement chaque semaine. L'installeur de Jessie est actuellement en `release candidate`, il était donc logique de prendre la denrière version disponible.
+L'image que j'ai utilisée est disponible ici: [http://cdimage.debian.org/cdimage/weekly-builds/](http://cdimage.debian.org/cdimage/weekly-builds/). Il s'agit d'images générées automatiquement chaque semaine. L'installeur de Jessie est actuellement en `release candidate`, il était donc logique de prendre la dernière version disponible.
 
 La création de la clef USB de démarrage est extrêmement simple
 
@@ -30,20 +30,24 @@ Au démarrage du Mac, dès que vous entendez le son, appuyez sur la touche `alt`
 Choisissez votre clef USB.
 
 L'installation de Debian, sur un LVM chiffré, en elle-même s'est parfaitement déroulée, modulo un bug de l'installeur qui ne connaissait plus ni `ext4`, ni `btrsf`, ni `jfs`. Gênant...  
-J'en ai été quitte pour recommencer la procédure avec la `Release Candidate 1` de l'installeur, disponible à cette adresse: [http://cdimage.debian.org/cdimage/jessie_di_rc1/](http://cdimage.debian.org/cdimage/jessie_di_rc1/). Cette fois là, tout s'est très bien déroulée.
+J'en ai été quitte pour recommencer la procédure avec la `Release Candidate 1` de l'installeur, disponible à cette adresse: [http://cdimage.debian.org/cdimage/jessie_di_rc1/](http://cdimage.debian.org/cdimage/jessie_di_rc1/). Cette fois là, tout s'est très bien déroulé.
 
 Le détail de mes déboires avec l'installeur Jessie est disponible dans mon [rapport d'installation #779651](http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=779651)
 
 ## Post-install
 
-Une fois le Mac redémarré, c'est là que les choses marrantes commencent. D'abord, globalement ça fonctionne plutôt pas mal. Dans mon cas, l'écran est reconnu en résolution native (2560x1600) et le support de HiDPI par Gnome est activé.  
+Une fois le Mac redémarré, c'est là que les choses marrantes commencent.  
+D'abord, globalement ça fonctionne plutôt pas mal. Dans mon cas, l'écran est reconnu en résolution native (2560x1600) et le support de HiDPI par Gnome est activé.  
 Reste que pas mal de choses doivent être adaptées...
 
-Je n'aime pas, personnellement, le HiDPI sous Gnome. Je préfère être en résolution native.  
+Je n'aime pas, personnellement, le HiDPI sous Gnome.  
 J'ai de très bons yeux et préfère avoir de la place sur mon écran.
 
-J'ai donc désactivé de HiDPI sous Gnome avec la commande `gsettings set org.gnome.desktop.interface scaling-factor 1`.  
-Dans certains cas, le nouveau paramètre n'est pas dynamiquement pris en compte. Il est possible de corriger le problème avec `dconf-editor`.
+J'ai donc désactivé de HiDPI sous Gnome avec l'utilitaire `gnome-tweak-tool`. Mais, cela ne suffit pas toujours apparemment. La commande suivante semble obtenir de meilleurs résultats
+
+    gsettings set org.gnome.desktop.interface scaling-factor 1
+
+Il est également possible d'utiliser l'utilitaire `dconf-editor` pour le faire.
 
 ### Réseau
 
@@ -55,12 +59,15 @@ L'adaptateur USB ethernet n'est pas en reste. Lui aussi a besoin d'un firmware, 
 
     apt-get install firmware-linux-nonfree
 
+Malheureusement, [même le pilote propriétaire souffre d'instabilités](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=744686).  
+La connexion Wifi se coupe d'elle-même et, parfois, ne parvient pas à se rétablir :(
+
 ### Thunderbolt
 
 Sous Jessie, le support de thunderbolt fonctionne.  
 En revanche, il y a de grandes chances pour que le module noyau `thunderbolt` vous pose des soucis en sortie de veille ou d'hibernation.
 
-Dans mon cas, le passage à `sid` a bien amélioré la situation. À présent, le branchement à chaud de périphérique thunderbolt fonctionne \o/
+Dans mon cas, le passage à `sid` a bien amélioré la situation. À présent, le branchement à chaud de périphériques thunderbolt (c'est-à-dire, en ce qui me concerne, le dongle USB Ethernet), fonctionne \o/
 
 ### Mise en veille & hibernation
 
@@ -87,6 +94,8 @@ Pour mettre en veille (en RAM)
 Pour mettre en veille prolongée (hiberner) tout en conservant les avantages de la mise en veille (restauration depuis la RMA beaucoup plus rapide)
 
     sboth --force --vbe_post --vbe_mode
+
+__Update: cette dernière solution ne fonctionne pas si bien que prévu...__
 
 Enfin, d'un point de vue plus général, j'ai résolu quelques soucis de stabilité en ajoutant des options de démarrage au noyau. Pour cela, il faut modifier le fichier `/etc/default/grub` pour obtenir
 
@@ -119,7 +128,8 @@ Il reste néanmoins quelques soucis plus persistants...
 
 Tout d'abord, la webcam. Celle-ci ne dispose d'aucun pilote disponible. Les modèles précédents embarquaient une webcam USB pour laquelle un pilote existait. À présent, la webcam est connectée sur un bus `PCIe`. Actuellement, un [projet a démarré](https://github.com/patjak/bcwc_pcie) pour pallier ce manque, mais il est loin d'être utilisable.
 
-Mis à part la webcam, le plus gênant aujourd'hui concerne le pilote graphique `i915`. De temps à autres, il semble ne pas très bien supporter la mise en veille et manifeste son mécontement. Le bug est connu chez [Ubuntu](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1384297) et [Redhat](https://bugzilla.redhat.com/show_bug.cgi?id=1120901)
+Mis à part la webcam, le pilote graphique `i915` connait également quelques à-coups. De temps à autres, il semble ne pas très bien supporter la mise en veille et manifeste son mécontement.  
+Le bug est connu chez [Ubuntu](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1384297) et [Redhat](https://bugzilla.redhat.com/show_bug.cgi?id=1120901)
 
     Mar  3 12:01:02 jbfavre kernel: [ 8881.708464] ------------[ cut here ]------------
     Mar  3 12:01:02 jbfavre kernel: [ 8881.708480] WARNING: CPU: 0 PID: 782 at /build/linux-SAvLSw/linux-3.16.7-ckt7/drivers/gpu/drm/i915/intel_display.c:4954 intel_modeset_check_state
@@ -362,12 +372,13 @@ Et quand Thunderbolt s'en mèle, ça tourne au carnage
 
 Principale conséquence a priori, je suis limité à 1 écran externe, la où je pourrais en brancher 2 (oui j'aime avoir 3 écrans simultanés :p)
 
-J'attends avec impatience l'arrivée du noyau 3.19 dans Debian. Il semble que la version 3.18 corrige ou améliore pas mal de choses concernant `thunderbolt` et `i915`. À suivre...
+J'attends avec impatience l'arrivée du noyau 3.19 dans Debian `sid`. Il semble que pas mal d'améliorations ont été faites dans la version 3.18 concernant `thunderbolt` et `i915`.  
+Mais la version `3.18` n'est plus disponible dans les dépôts Debian. À suivre donc...
 
 ## Conclusion
 
 Voilà quelques notes rapides liées à l'installation de Debian sur un Macbook Pro.  
-Bonne impression au final, c'est une belle machine et le support par Debian est finalement plutôt bon.
+Bonne impression au final, c'est une belle machine et le support par Debian est finalement plutôt bon, même si le ton du billet laisse penser le contraire.
 
 Un seul regret: j'ai totalement supprimé MacOS. __Ne le faites pas !__  
 En effet, je ne peux plus maintenant réaliser de mise à jour des firmware Apple (ils sont fournis dans MacOS).
