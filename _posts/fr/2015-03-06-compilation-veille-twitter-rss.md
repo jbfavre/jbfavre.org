@@ -52,6 +52,9 @@ Today Algolia serves more than 2 billion user generated queries per month from 1
 
 ## Security
 
+[Simple Denial of Service DOS attack mitigation using HAProxy](http://blog.loadbalancer.org/simple-denial-of-service-dos-attack-mitigation-using-haproxy/)
+: Denial of Service (DOS) attacks can be especially effective against certain types of web application. If the application is highly dynamic or database intensive it can be remarkably simple to degrade or cripple the functionality of a site. This blog article describes some simple methods to mitigate single source IP DOS attacks using HAProxy. I’ve described how you would implement the techniques using the Loadbalancer.org appliance but they are easily transferable to any HAProxy based cluster.
+
 [Protecting web origins with Authenticated Origin Pulls](http://blog.cloudflare.com/protecting-the-origin-with-tls-authenticated-origin-pulls/)
 : As we have been discussing this week, securing the connection between CloudFlare and the origin server is arguably just as important as securing the connection between end users and CloudFlare. The origin certificate authority we announced this week will help CloudFlare verify that it is talking to the correct origin server. But what about verification in the opposite direction? How can the origin verify that the client talking to it is actually CloudFlare?
 
