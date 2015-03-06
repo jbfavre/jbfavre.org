@@ -2,10 +2,10 @@
 layout: post
 title: "Compilation veille Twitter & RSS #2015-09"
 category: veille
-date: 2015-02-27 18:00 +0100
+date: 2015-03-06 18:00 +0100
 ---
 
-La moisson de liens pour les semaine du 1<sup>er</sup> au 6 MARS 2015.
+La moisson de liens pour les semaine du 1<sup>er</sup> au 6 mars 2015.
 Ils ont, pour la plupart été publiés sur mon compte Twitter.
 Les voici rassemblés pour ceux qui les auraient raté.
 
