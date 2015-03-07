@@ -2,7 +2,8 @@
 layout: post
 title: GNU/Linux Debian on a Macbook Pro 11-1
 category: sysadmin
-tags: [jessie,installation,macbook pro]
+tags: [debian,jessie,installation,macbook pro]
+date: 2015-03-07 14:00:00 +0100
 name: debian-jessie-installation-on-macbookpro-111
 ---
 
@@ -10,112 +11,110 @@ I've had the opportunity to install `Debian` on a `Macbook Pro 11-1`. The reason
 
 ## Pre-install
 
-L'installation de `Debian` sur un Macbook Pro, comme sur n'importe quelle machine du reste, ne s'improvise pas totalement.  
-Il faut d'une part lire les documentations existantes, voir en fin d'article, mais également préparer un minimum de chose, à commencer par la clef USB qui nous permettra de démarrer sous notre système d'exploitation préféré.
+Installing `Debian` on a Macbook Pro, as on any other computer, needs some preparation.  
+You should always read existing documentation, see at the end of this post, but also prepare things, like the USB key you will use to install your beloved operating system.
 
-J'ai utilisé une image `iso` netinst de l'installeur `Jessie`. Bien que non stable, c'est cette version que j'utilisait sur mon ancien portable. Il était donc naturel pour moi de continuer sur ma lancée. Accessoirement, c'était aussi l'occasion de tester l'installeur.
+I used the `iso` netinst image of `Jessie` installer. Though it's not yet stable, I already used `Jessie` on my previous laptop, so this choice wasn't really a question. Beside, it was also the occasion to test the new installer.
 
-L'image que j'ai utilisée est disponible ici: [http://cdimage.debian.org/cdimage/weekly-builds/](http://cdimage.debian.org/cdimage/weekly-builds/). Il s'agit d'images générées automatiquement chaque semaine. L'installeur de Jessie est actuellement en `release candidate`, il était donc logique de prendre la denrière version disponible.
+The image I used is available there: [http://cdimage.debian.org/cdimage/weekly-builds/](http://cdimage.debian.org/cdimage/weekly-builds/). These images are built every week. `Jessie` installer is currently in `Release candidate` making quite natural to use the latest version available.
 
-La création de la clef USB de démarrage est extrêmement simple
+USB key creation is extremely easy
 
     dd if=~/Downloads/debian-testing-amd64-netinst.iso of=/dev/sdX bs=4M
 
-où `/dev/sdX` représente votre clef USB. Assurez-vous qu'elle n'est pas montée avant d'écrire dessus :)
+where `/dev/sdX` is you USB key. Juste ensure it's not mounted befor writing it :)
 
 ## Installation
 
-Au démarrage du Mac, dès que vous entendez le son, appuyez sur la touche `alt` (symbole `⌥`) pour accéder au menu de démarrage. Sans ça, vous entamerez l'installation de `MacOS`.  Vous verrez apparaître le menu graphique vous permettant de choisir le péripherique de démarrage.  
-Choisissez votre clef USB.
+When starting your Macbook Pro, press `alt` (symbol `⌥`) as soon as you hear the start sound to acces boot menu, or you'll start MacOS installation process. When graphical menu is displayed, you'll be able to choose your USB key and boot.
 
-L'installation de Debian, sur un LVM chiffré, en elle-même s'est parfaitement déroulée, modulo un bug de l'installeur qui ne connaissait plus ni `ext4`, ni `btrsf`, ni `jfs`. Gênant...  
-J'en ai été quitte pour recommencer la procédure avec la `Release Candidate 1` de l'installeur, disponible à cette adresse: [http://cdimage.debian.org/cdimage/jessie_di_rc1/](http://cdimage.debian.org/cdimage/jessie_di_rc1/). Cette fois là, tout s'est très bien déroulée.
+Installing Debian on an encrypted LVM iq quite easy. The only issue I faced was related to a bug with installer: filesystem `ext4`, `btrsf` or `jfs` weren't available. Weird...  
+I had to restart installation useing the `RC1` version of the `Jessie` installer. The image is available here: [http://cdimage.debian.org/cdimage/jessie_di_rc1/](http://cdimage.debian.org/cdimage/jessie_di_rc1/). This time, everything went fine.
 
-Le détail de mes déboires avec l'installeur Jessie est disponible dans mon [rapport d'installation #779651](http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=779651)
+I wrote an [installation report #779651](http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=779651) to explain what happened with the weekly image.
 
 ## Post-install
 
-Une fois le Mac redémarré, c'est là que les choses marrantes commencent. D'abord, globalement ça fonctionne plutôt pas mal. Dans mon cas, l'écran est reconnu en résolution native (2560x1600) et le support de HiDPI par Gnome est activé.  
-Reste que pas mal de choses doivent être adaptées...
+Once you installed you Macbook Pro and it has rebooted, here begin the fun part. First, the good thing is that it globally works pretty well. For example, the native screen resolution (2560x1600) is supported and HiDPI is automaticaly detected and enable with Gnome.  
+Still, you'll have to adapt many things...
 
-Je n'aime pas, personnellement, le HiDPI sous Gnome. Je préfère être en résolution native.  
-J'ai de très bons yeux et préfère avoir de la place sur mon écran.
+Personaly, I don't like HiDPI that much and prefer to get real native resolution.  
+I therefore desactivated HiDPI on Gnome with command `gsettings set org.gnome.desktop.interface scaling-factor 1`.  
+In some cases, the new parameter is not fully applied. You can fix this issue with `dconf-editor`.
 
-J'ai donc désactivé de HiDPI sous Gnome avec la commande `gsettings set org.gnome.desktop.interface scaling-factor 1`.  
-Dans certains cas, le nouveau paramètre n'est pas dynamiquement pris en compte. Il est possible de corriger le problème avec `dconf-editor`.
+### Network
 
-### Réseau
-
-La carte Wifi utilise les pilotes Broadcom. Il faut donc installer un logiciel propriétaire:
+Wifi card, a broadcom chipset, requires proprietary drivers. You can install them with
 
     apt-get install broadcom-sta-dkms
 
-L'adaptateur USB ethernet n'est pas en reste. Lui aussi a besoin d'un firmware, en l'occurrence `tg3`
+Some goes for the ethernet adapter,which requires `tg3` firmware
 
     apt-get install firmware-linux-nonfree
 
 ### Thunderbolt
 
-Sous Jessie, le support de thunderbolt fonctionne.  
-En revanche, il y a de grandes chances pour que le module noyau `thunderbolt` vous pose des soucis en sortie de veille ou d'hibernation.
+Thunderbolt is supported under `Jessie`.  
+But, chances are that you run into problems when resuming suspend or hibernation.
 
-Dans mon cas, le passage à `sid` a bien amélioré la situation. À présent, le branchement à chaud de périphérique thunderbolt fonctionne \o/
+In my case, upgrading to `sid` solve some of the issues. Now, Thunderbolt hotplug "kind of works".
 
-### Mise en veille & hibernation
+### Suspend & hibernation
 
-On attaque le cœur du problème...  
-Sauvegardez __toujours__ vos documents avant une mise en veille: vous n'êtes jamais certains de les retrouver tant la sortie de veille est cahotique.
+Let's dive into core problmes...  
+Do __always__ save your documents before you suspend or hibernate you computer: because of resume issues, you can never be sure to get them back.
 
-Dans mon cas, là encore, le passage à `sid` a amélioré la situation. Mais ce n'est pas encore ça :(
+Here again, upgrading to `sid` improve suspend and hibernation support. But I still see some issues :(
 
-Si toutefois la mise à jour vers `sid` vous rebute, quelques astuces
+If you really don't want to upgrade, here are some tips
 
     apt-get install acpi-support
 
-Ceci installera différents scripts par défaut pour gérer les évènements liés à la gestion de l'énergie. Vous devriez pouvoir obtenir une mise en veille acceptable.  
-Dans le cas contraire, les paquets `hibernate` et `uswsusp` peuvent également être utile
+Installing this package will give you some default scripts to deal with ACPI stuff. You could get a better suspend / hibernation support.  
+If it does not work, try installing `hibernate` and `uswsusp` packages
 
-Pour hiberner
+To hibernate
 
     hibernate
 
-Pour mettre en veille (en RAM)
+To suspend (in RAM)
 
     s2ram -f -p -m
 
-Pour mettre en veille prolongée (hiberner) tout en conservant les avantages de la mise en veille (restauration depuis la RMA beaucoup plus rapide)
+To hibernate in hybrid mode (meaning you can resume from RAM as long as you have battery)
 
     sboth --force --vbe_post --vbe_mode
 
-Enfin, d'un point de vue plus général, j'ai résolu quelques soucis de stabilité en ajoutant des options de démarrage au noyau. Pour cela, il faut modifier le fichier `/etc/default/grub` pour obtenir
+Finally, generaly speaking, I solve some stability issues adding some kernel options. Modify `/etc/default/grub` to get
 
     GRUB_CMDLINE_LINUX_DEFAULT="quiet rootflags=data=writeback libata.force=noncq acpi_osi=Darwin"
     GRUB_CMDLINE_LINUX="init=/bin/systemd"
 
-Notamment, `acpi_osi=Darwin` est nécessaire pour que l'ACPI fonctionne convenablement et `init=/bin/systemd` m'a permis de faire fonctionner la mise en veille depuis Gnome.
+You need `acpi_osi=Darwin` to ensure ACPI is working correctly. You also need `init=/bin/systemd` so that Gnome can manage suspend operations.
 
-Malheureusement, si l'hibernation fonctionne plutôt pas mal, la mise en veille reste parfois vacillante.
+Unfortunatly, if hibernation works pretty well, suspend is not stable enough to be really usefull.
 
-### Son
+### Sound
 
-Le son fonctione correctement. Néanmoins, la prise casque comporte également une [sortie optique SPDIF qui ne peut être éteinte par défaut](https://bugzilla.kernel.org/show_bug.cgi?id=64401#c25). Les menus "classiques" ne supporte pas sa désactivation. Seule manière de faire, exécuter
+Sound works out of the box. But you also have an [optical SPDIF output which can't be switched off](https://bugzilla.kernel.org/show_bug.cgi?id=64401#c25) via classical menus. The only way to switch it off is to use following command
 
     /usr/bin/hda-verb /dev/snd/hwC1D0 0x0e SET_POWER_STATE 0x03
 
-La commande a fini dans mon `/etc/rc.local`
+That command ended up in my `/etc/rc.local` file.
 
 ### kworker
 
-J'ai été confronté à un bug particulièrement vicieux: un [process `kworker` qui bouffe 80% d'un CPU en permamence](https://bugzilla.kernel.org/show_bug.cgi?id=85881). Seule solution: désactiver l'interruption qui en est responsable
+I also faced that annoying bug with [`kworker` process using 80% of a CPU](https://bugzilla.kernel.org/show_bug.cgi?id=85881). Only solution: disabling related IRQ
 
     echo disable > /sys/firmware/acpi/interrupts/gpe66
 
-La commande a également fini dans mon `/etc/rc.local`
+This command also ended up in my `/etc/rc.local` file.
 
-## Soucis restant
+## Remaining problems
 
-Il reste néanmoins quelques soucis plus persistants...  
-Le plus gênant aujourd'hui concerne le pilote graphique `i915`. De temps à autres, il semble ne pas très bien supporter la mise en veille et manifeste son mécontement. Le bug est connu chez [Ubuntu](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1384297) et [Redhat](https://bugzilla.redhat.com/show_bug.cgi?id=1120901)
+First of all, the webcam, with no driver currently available. Previous Macbook Pro models shipped a USB webcam. Nowaday, webcamm uses a `PCIe` connection. I found a [project to implement a free driver](https://github.com/patjak/bcwc_pcie) but it's currently far from being usable.
+
+Webcam apart, the most annoying issue concerns i915 graphic driver. From time to time, it seems having problems after a suspend resume and let you know it's not happy. It's a known bug on [Ubuntu](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1384297) and [Redhat](https://bugzilla.redhat.com/show_bug.cgi?id=1120901)
 
     Mar  3 12:01:02 jbfavre kernel: [ 8881.708464] ------------[ cut here ]------------
     Mar  3 12:01:02 jbfavre kernel: [ 8881.708480] WARNING: CPU: 0 PID: 782 at /build/linux-SAvLSw/linux-3.16.7-ckt7/drivers/gpu/drm/i915/intel_display.c:4954 intel_modeset_check_state
@@ -163,7 +162,7 @@ Le plus gênant aujourd'hui concerne le pilote graphique `i915`. De temps à aut
     Mar  3 12:01:02 jbfavre kernel: [ 8881.708661]  [<ffffffff8150ff6d>] ? system_call_fast_compare_end+0x10/0x15
     Mar  3 12:01:02 jbfavre kernel: [ 8881.708662] ---[ end trace c412b1dd6b4dfc1b ]---
 
-À la sortie de veille, c'est parfois un festival
+After a suspend operation, it can display
 
     ------------[ cut here ]------------
     WARNING: CPU: 0 PID: 2076 at /build/linux-SAvLSw/linux-3.16.7-ckt7/drivers/gpu/drm/i915/intel_pm.c:5992 intel_display_power_put+0x127/0x150 [i915]()
@@ -190,7 +189,7 @@ Le plus gênant aujourd'hui concerne le pilote graphique `i915`. De temps à aut
      [<ffffffff8150ff6d>] ? system_call_fast_compare_end+0x10/0x15
     ---[ end trace f899d968c5906660 ]---
 
-Et quand Thunderbolt s'en mèle, ça tourne au carnage
+And when Thhunberbolt does not like suspend resume either, it can be worst
 
     ------------[ cut here ]------------
     WARNING: CPU: 3 PID: 6627 at /build/linux-SAvLSw/linux-3.16.7-ckt7/drivers/thunderbolt/ctl.c:694 tb_cfg_read+0x7d/0x90 [thunderbolt]()
@@ -356,23 +355,23 @@ Et quand Thunderbolt s'en mèle, ça tourne au carnage
     thunderbolt 0000:07:00.0: resetting switch at 0
     ------------[ cut here ]------------
 
-Principale conséquence a priori, je suis limité à 1 écran externe, la où je pourrais en brancher 2 (oui j'aime avoir 3 écrans simultanés :p)
+Main consequence, I can not plug more than 1 external monitor, when I should plug 2 (and I like having 3 simultaneous screens :p)
 
-J'attends avec impatience l'arrivée du noyau 3.19 dans Debian. Il semble que la version 3.18 corrige ou améliore pas mal de choses concernant `thunderbolt` et `i915`.
+I can't wait kernel 3.19 reaching Debian `sid`. It seems that many improvements have been done regarding `thunderbolt` et `i915` in kernel 3.18 which, sadly, is not available in Debian.
 
 ## Conclusion
 
-Voilà quelques notes rapides liées à l'installation de Debian sur un Macbook Pro.  
-Bonne impression au final, c'est une belle machine et le support par Debian est plutôt bon.
+Here are my Debian installation on a Macbook Pro quick notes.  
+As a conclusion, things work pretty well, even if this post could let you feel the opposite.
 
-Un seul regret: j'ai totalement supprimé MacOS. __Ne le faites pas__  
-En effet, je ne peux plus maintenant réaliser de mise à jour des firmware Apple (ils sont fournis dans MacOS).
+I made one mistake though: I fully remove MacOS. __Do not do this !__  
+Now, I can't upgrade any firmware since they're provided by MacOS updates.
 
-De la même manière, je ne peux pas faire taire la machine au démarrage.  
-Du coup, tous les collègues sont au courant quand je suis obligé de redémarrer à cause de l'un ou l'autre bug :-D
+Same way, I can't silence the Macbook Pro startup, it can be done only from MacOS.  
+Now all my collegues know when I must reboot because of a bug. And they make fun of me :-D
 
 ## Sources
 
-- [Wiki Debian MacBookPro 11-1](https://wiki.debian.org/InstallingDebianOn/Apple/MacBookPro/11-1)
-- [Wiki Ubuntu MacBookPro 11-1](https://help.ubuntu.com/community/MacBookPro11-1/Saucy)
-- [Wiki ArchLinux MacBookPro 11-1](https://wiki.archlinux.org/index.php/MacBookPro11,x)
+- [Debian Wiki MacBookPro 11-1](https://wiki.debian.org/InstallingDebianOn/Apple/MacBookPro/11-1)
+- [Ubuntu Wiki MacBookPro 11-1](https://help.ubuntu.com/community/MacBookPro11-1/Saucy)
+- [ArchLinux Wiki MacBookPro 11-1](https://wiki.archlinux.org/index.php/MacBookPro11,x)
