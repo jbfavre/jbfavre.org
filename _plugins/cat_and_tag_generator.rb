@@ -121,9 +121,9 @@ module Jekyll
     def build_links(type, data)
       base_dir = @context.registers[:site].config["#{type}_page_dir"]
       data = data.map do |item|
-        item_dir = "#{base_dir}/#{item}"
+        item_dir = URI.escape("#{base_dir}/#{item}")
         # Make sure the category directory begins with a slash.
-        item_dir = "/#{item_dir}" unless item_dir =~ /^\//
+        item_dir = URI.escape("/#{item_dir}") unless item_dir =~ /^\//
         "<a rel='#{type}' href='#{item_dir}/'>#{item}</a>"
       end
 
@@ -147,6 +147,20 @@ module Jekyll
       if data
         build_links('tag', data)
       end
+    end
+
+    def get_feed_url(type,data)
+      base_dir = @context.registers[:site].config["#{type}_page_dir"]
+      if type == 'category' or type == 'tag'
+        "/#{base_dir}/#{data}/atom.xml"
+      end
+    end
+
+    def get_category_feed_url(data)
+      get_feed_url('category', data)
+    end
+    def get_tag_feed_url(data)
+      get_feed_url('tag', data)
     end
 
   end
