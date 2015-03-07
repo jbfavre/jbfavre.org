@@ -54,15 +54,14 @@ post_class: post-template
     </section>
     <footer class="post-footer">
 {% if site.related_posts.size != 0 %}    <section class="archive">
-      <h5>Related posts</h5>
+      <h5>Sur le même sujet</h5>
       <ul>
-        {% for post in site.related_posts limit:5 %}        <li><span>{{ post.date | date_to_string }}</span>  <a href="{{ post.url }}">{{ post.title }}</a></li>{% endfor %} 
+{% for post in site.related_posts limit:5 %}        <li><span>{{ post.date | date_to_string }}</span>  <a href="{{ post.url }}">{{ post.title }}</a></li>{% endfor %} 
       </ul>
-    </section>{% endif %}
-{% if page.archive %}    <section class="archive">
+    </section>{% endif %}{% if page.archive %}    <section class="archive">
       <h5>Archive</h5>
       <ul>
-        {% for post in site.posts %}        <li><span>{{ post.date | date_to_string }}</span>  <a href="{{ post.url }}">{{ post.title }}</a></li>{% endfor %}	
+{% for post in site.posts %}        <li><span>{{ post.date | date_to_string }}</span>  <a href="{{ post.url }}">{{ post.title }}</a></li>{% endfor %}	
       </ul>
     </section>{% endif %}
       {% if page.disqus %}

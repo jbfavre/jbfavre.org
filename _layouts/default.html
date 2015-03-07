@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% strip %}<!DOCTYPE html>
 <html {%if page.post_class != false %}lang="{% if page.lang %}{{ page.lang }}{% else %}fr{% endif %}"{% endif %}>
 <head>   
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -23,7 +23,11 @@
   - /_assets/css/syntax.css
   - /_assets/css/main.css
   - /_assets/css/blog.css{% endcss_asset_tag %}
-  <link rel="alternate" type="application/atom+xml" title="Feed for category: {{ page.categories | first }}" href="{% page_feed_url %}" />
+  <link rel="alternate" type="application/atom+xml" title="Feed" href="{% page_feed_url %}" />
+{% for category in page.categories %}{% assign feed_link = category | get_category_feed_url: %}{% if feed_link != page_feed_url %}
+  <link rel="alternate" type="application/atom+xml" title="Feed for category: {{ category }}" href="{{ feed_link }}" />{% endif %}{% endfor %}
+{% for tag in page.tags %}{% assign feed_link = tag | get_tag_feed_url: %}{% if feed_link != page_feed_url %}
+  <link rel="alternate" type="application/atom+xml" title="Feed for tag: {{ tag }}" href="{{ feed_link }}" />{% endif %}{% endfor %}
 {% if page.excerpt %}
   <!-- Twitter cards -->
   <meta name="twitter:card" content="summary" />
@@ -52,4 +56,4 @@
     </div>
   </footer>
 </body>
-</html>
+</html>{% endstrip %}
