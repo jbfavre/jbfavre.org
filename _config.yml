@@ -36,7 +36,7 @@ owner:
   twitter: jbfavre
   gnusocial: status.jbfavre.org
 
-permalink: /:year/:month/:day/:title
+permalink: /:year/:month/:day/:title/
 
 exclude: ["LICENSE.txt", "README.md", "Gemfile", "Gemfile.lock", ".git", ".gitignore", ".bundle", "vendors"]
 
