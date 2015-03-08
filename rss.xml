@@ -5,16 +5,16 @@
   <channel>
     <title>{{ site.name | xml_escape }}</title>
     <description>{{ site.description | strip_html }}</description>
-    <link>//{{ site.url }}</link>
-    <atom:link href="//{{ site.url }}/feed.xml" rel="alternate" type="application/rss+xml" />
+    <link>{{ site.url }}</link>
+    <atom:link href="{{ site.url }}/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="{{ site.url }}/atom.xml" rel="alternate" type="application/atom+xml" />
     {% for post in site.posts limit:15 %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
         <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
         <link>{{ site.url }}/{{ post.url }}</link>
         <guid isPermaLink="true">{{ site.url }}/{{ post.url }}</guid>
-        <description>{{ post.excerpt | markdownify | xml_escape }}</description>
-	<content type="html"><![CDATA[{{ post.content | expand_urls: site.url | markdownify | cdata_escape }}]]></content>
+        <description><![CDATA[{{ post.content | relative_urls_to_absolute: site.url | markdownify | cdata_escape }}]]></description>
       </item>
     {% endfor %}
   </channel>
