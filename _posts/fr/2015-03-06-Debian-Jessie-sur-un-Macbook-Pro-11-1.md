@@ -2,7 +2,7 @@
 layout: post
 title: GNU/Linux Debian Jessie sur un Macbook Pro 11-1
 category: sysadmin
-tags: [debian,jessie,installation,macbook pro]
+tags: [debian,jessie,macbook pro]
 date: 2015-03-06 14:00:00 +0100
 name: debian-jessie-installation-on-macbookpro-111
 ---

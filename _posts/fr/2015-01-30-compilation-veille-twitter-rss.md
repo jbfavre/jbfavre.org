@@ -91,7 +91,7 @@ In Part II, I focus on the set of metrics captured from within the application s
 
 ## HaProxy
 
-[Web application name to backend mapping in HAProxy]()
+[Web application name to backend mapping in HAProxy](http://blog.haproxy.com/2015/01/26/web-application-name-to-backend-mapping-in-haproxy/)
 : Let’s take a web application platform where many HTTP Host header points to.
 Of course, this platform hosts many backends and HAProxy is used to perform content switching based on the Host header to route HTTP traffic to each backend.
 
@@ -190,7 +190,7 @@ The firewall filter is meant to offer finer and more varied control over queries
 
 [Docker Hub Improvements](https://blog.docker.com/2015/01/docker-hub-improvements/)
 : Docker Hub has become an integral part of the Docker experience for our incredible community. As our user community has scaled exponentially, we have begun to put significant effort into improving its scale, performance and reliability. A number of these changes have happened through new software releases, but we also have made significant upgrades in hardware which happened during our recent scheduled maintenance window.
-Big 
+
 ## Architecture
 
 [Combining HTML5 Web Applications with OpenCV](http://java.dzone.com/articles/combining-html-web)
